@@ -1,405 +1,597 @@
 <!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juan Santos — Engenheiro de Software</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juan Santos — Engenheiro de Software</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400&display=swap"
-    rel="stylesheet" />
-</head>
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-<body>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+    <!-- NAV -->
+    <nav id="nav">
+      <a href="#hero" class="nav-logo">OJUANDEV<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#diferencial">Diferencial</a></li>
+        <li><a href="#cases">Cases</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a
+        href="https://wa.me/+5511945691430?text=Oi!%20Quero%20iniciar%20meu%20projeto!"
+        target="_blank"
+        class="nav-cta"
+        >Iniciar projeto</a
+      >
+    </nav>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <a href="#hero" class="nav-logo">OJUANDEV<span>.</span></a>
-    <ul class="nav-links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#diferencial">Diferencial</a></li>
-      <li><a href="#cases">Cases</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-    <a href="https://wa.me/+5511945691430?text=Oi!%20Quero%20iniciar%20meu%20projeto!" target="_blank"
-      class="nav-cta">Iniciar projeto</a>
-  </nav>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-orb orb1"></div>
-    <div class="hero-orb orb2"></div>
+      <div class="hero-label">// Engenheiro de Software & Arquiteto Web</div>
 
-    <div class="hero-label">// Engenheiro de Software & Arquiteto Web</div>
+      <h1 class="hero-title">
+        Full<br />
+        <em>Stack</em><br />
+        Developer
+      </h1>
 
-    <h1 class="hero-title">
-      Full<br />
-      <em>Stack</em><br />
-      Developer
-    </h1>
-
-    <div class="hero-bottom">
-      <p class="hero-desc">
-        Especialista em <strong>JS/TS, React e Node.js</strong>. Arquitetando
-        soluções digitais robustas com foco em escalabilidade, performance e
-        interfaces imaculadas.
-      </p>
-      <div>
-        <div class="hero-cta-group">
-          <a href="#cases" class="btn-primary">Ver projetos <span class="arrow">→</span></a>
-          <a href="#sobre" class="btn-ghost">Sobre mim</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num" id="counter-projects">0</div>
-            <div class="stat-label">Projetos</div>
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          Especialista em <strong>JS/TS, React e Node.js</strong>. Arquitetando
+          soluções digitais robustas com foco em escalabilidade, performance e
+          interfaces imaculadas.
+        </p>
+        <div>
+          <div class="hero-cta-group">
+            <a href="#cases" class="btn-primary"
+              >Ver projetos <span class="arrow">→</span></a
+            >
+            <a href="#sobre" class="btn-ghost">Sobre mim</a>
           </div>
-          <div class="stat">
-            <div class="stat-num" id="counter-years">0</div>
-            <div class="stat-label">Anos exp.</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num" id="counter-clients">0</div>
-            <div class="stat-label">Clientes</div>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-num" id="counter-projects">0</div>
+              <div class="stat-label">Projetos</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num" id="counter-years">0</div>
+              <div class="stat-label">Anos exp.</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num" id="counter-clients">0</div>
+              <div class="stat-label">Clientes</div>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="scroll-hint" style="margin-top: 4rem">
+        <div class="scroll-line"></div>
+        scroll
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+      <div class="marquee-track" id="marquee">
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Javascript</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Typescript</span
+        >
+        <span class="marquee-item"><span class="marquee-dot"></span>React</span>
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Next.js</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Node.js</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>PostgreSQL</span
+        >
+        <span class="marquee-item"><span class="marquee-dot"></span>AWS</span>
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Docker</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Shopify</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>E-commerce</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Micro-SaaS</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Arquitetura de Software</span
+        >
+        <!-- Duplicate for seamless loop -->
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Javascript</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Typescript</span
+        >
+        <span class="marquee-item"><span class="marquee-dot"></span>React</span>
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Next.js</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Node.js</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>PostgreSQL</span
+        >
+        <span class="marquee-item"><span class="marquee-dot"></span>AWS</span>
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Docker</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Shopify</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>E-commerce</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Micro-SaaS</span
+        >
+        <span class="marquee-item"
+          ><span class="marquee-dot"></span>Arquitetura de Software</span
+        >
+      </div>
     </div>
 
-    <div class="scroll-hint" style="margin-top: 4rem">
-      <div class="scroll-line"></div>
-      scroll
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-section">
-    <div class="marquee-track" id="marquee">
-      <span class="marquee-item"><span class="marquee-dot"></span>Javascript</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Typescript</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>React</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Next.js</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Node.js</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>PostgreSQL</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>AWS</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Docker</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Shopify</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>E-commerce</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Micro-SaaS</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Arquitetura de Software</span>
-      <!-- Duplicate for seamless loop -->
-      <span class="marquee-item"><span class="marquee-dot"></span>Javascript</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Typescript</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>React</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Next.js</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Node.js</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>PostgreSQL</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>AWS</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Docker</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Shopify</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>E-commerce</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Micro-SaaS</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Arquitetura de Software</span>
-    </div>
-  </div>
-
-  <!-- SOBRE -->
-  <section id="sobre">
-    <div class="section-tag">Sobre mim</div>
-    <h2 class="section-title reveal">
-      Pós-graduado em<br /><em>Engenharia</em>
-    </h2>
-    <div class="section-title reveal" style="
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="section-tag">Sobre mim</div>
+      <h2 class="section-title reveal">
+        Pós-graduado em<br /><em>Engenharia</em>
+      </h2>
+      <div
+        class="section-title reveal"
+        style="
           font-size: clamp(2rem, 4vw, 4rem);
           color: var(--muted);
           font-weight: 400;
           margin-bottom: 0;
-        ">
-      de Software.
-    </div>
-
-    <div class="sobre-grid">
-      <div class="reveal">
-        <div class="sobre-text">
-          <p>
-            Desenvolvedor Full Stack com foco em
-            <strong>ecossistemas modernos de JavaScript e TypeScript</strong>.
-            Atualmente coordenando projetos de implementação de e-commerce e
-            arquitetando soluções digitais robustas.
-          </p>
-          <p>
-            Minha filosofia de código é baseada em
-            <strong>escalabilidade, performance e interfaces imaculadas</strong>
-            — cada linha escrita com intenção estratégica alinhada às
-            necessidades do negócio.
-          </p>
-          <p>
-            Da concepção do banco de dados relacional à última etapa de
-            renderização no front-end, entrego não apenas código, mas
-            <strong>visão de produto completa</strong>.
-          </p>
-        </div>
-
-        <div class="skills-grid" style="margin-top: 2.5rem">
-          <div class="skill-pill">JavaScript</div>
-          <div class="skill-pill">TypeScript</div>
-          <div class="skill-pill">React / Next.js</div>
-          <div class="skill-pill">Node.js</div>
-          <div class="skill-pill">PostgreSQL</div>
-          <div class="skill-pill">AWS</div>
-          <div class="skill-pill">Docker</div>
-          <div class="skill-pill">Git / CI-CD</div>
-          <div class="skill-pill">Shopify / Liquid</div>
-          <div class="skill-pill">E-commerce</div>
-        </div>
+        "
+      >
+        de Software.
       </div>
 
-      <div class="sobre-visual reveal" style="transition-delay: 0.2s">
-        <div class="about-card">
-          <div class="about-quote">
-            "Código limpo não é escrito por acaso — é resultado de disciplina,
-            visão e obsessão com qualidade."
+      <div class="sobre-grid">
+        <div class="reveal">
+          <div class="sobre-text">
+            <p>
+              Desenvolvedor Full Stack com foco em
+              <strong>ecossistemas modernos de JavaScript e TypeScript</strong>.
+              Atualmente coordenando projetos de implementação de e-commerce e
+              arquitetando soluções digitais robustas.
+            </p>
+            <p>
+              Minha filosofia de código é baseada em
+              <strong
+                >escalabilidade, performance e interfaces imaculadas</strong
+              >
+              — cada linha escrita com intenção estratégica alinhada às
+              necessidades do negócio.
+            </p>
+            <p>
+              Da concepção do banco de dados relacional à última etapa de
+              renderização no front-end, entrego não apenas código, mas
+              <strong>visão de produto completa</strong>.
+            </p>
           </div>
-          <div class="about-badge">Pós-graduado em Eng. de Software</div>
-          <div style="
+
+          <div class="skills-grid" style="margin-top: 2.5rem">
+            <div class="skill-pill">JavaScript</div>
+            <div class="skill-pill">TypeScript</div>
+            <div class="skill-pill">React / Next.js</div>
+            <div class="skill-pill">Node.js</div>
+            <div class="skill-pill">PostgreSQL</div>
+            <div class="skill-pill">AWS</div>
+            <div class="skill-pill">Docker</div>
+            <div class="skill-pill">Git / CI-CD</div>
+            <div class="skill-pill">Shopify / Liquid</div>
+            <div class="skill-pill">E-commerce</div>
+          </div>
+        </div>
+
+        <div class="sobre-visual reveal" style="transition-delay: 0.2s">
+          <div class="about-card">
+            <div class="about-quote">
+              "Código limpo não é escrito por acaso — é resultado de disciplina,
+              visão e obsessão com qualidade."
+            </div>
+            <div class="about-badge">Pós-graduado em Eng. de Software</div>
+            <div
+              style="
                 margin-top: 2rem;
                 padding-top: 2rem;
                 border-top: 1px solid var(--border);
-              ">
-            <div class="about-info-grid">
-              <div>
-                <div style="
+              "
+            >
+              <div class="about-info-grid">
+                <div>
+                  <div
+                    style="
                       font-family: &quot;JetBrains Mono&quot;, monospace;
                       font-size: 0.7rem;
                       color: var(--accent);
                       text-transform: uppercase;
                       letter-spacing: 0.1em;
                       margin-bottom: 0.5rem;
-                    ">
-                  Foco
+                    "
+                  >
+                    Foco
+                  </div>
+                  <div style="font-size: 0.9rem; color: var(--muted)">
+                    Arquitetura Web & E-commerce
+                  </div>
                 </div>
-                <div style="font-size: 0.9rem; color: var(--muted)">
-                  Arquitetura Web & E-commerce
-                </div>
-              </div>
-              <div>
-                <div style="
+                <div>
+                  <div
+                    style="
                       font-family: &quot;JetBrains Mono&quot;, monospace;
                       font-size: 0.7rem;
                       color: var(--accent);
                       text-transform: uppercase;
                       letter-spacing: 0.1em;
                       margin-bottom: 0.5rem;
-                    ">
-                  Stack
+                    "
+                  >
+                    Stack
+                  </div>
+                  <div style="font-size: 0.9rem; color: var(--muted)">
+                    JS/TS · React · Node.js
+                  </div>
                 </div>
-                <div style="font-size: 0.9rem; color: var(--muted)">
-                  JS/TS · React · Node.js
-                </div>
-              </div>
-              <div>
-                <div style="
+                <div>
+                  <div
+                    style="
                       font-family: &quot;JetBrains Mono&quot;, monospace;
                       font-size: 0.7rem;
                       color: var(--accent);
                       text-transform: uppercase;
                       letter-spacing: 0.1em;
                       margin-bottom: 0.5rem;
-                    ">
-                  Localização
+                    "
+                  >
+                    Localização
+                  </div>
+                  <div style="font-size: 0.9rem; color: var(--muted)">
+                    São Paulo, Brasil
+                  </div>
                 </div>
-                <div style="font-size: 0.9rem; color: var(--muted)">
-                  São Paulo, Brasil
-                </div>
-              </div>
-              <div>
-                <div style="
+                <div>
+                  <div
+                    style="
                       font-family: &quot;JetBrains Mono&quot;, monospace;
                       font-size: 0.7rem;
                       color: var(--accent);
                       text-transform: uppercase;
                       letter-spacing: 0.1em;
                       margin-bottom: 0.5rem;
-                    ">
-                  Disponibilidade
-                </div>
-                <div style="font-size: 0.9rem; color: var(--accent)">
-                  ● Disponível
+                    "
+                  >
+                    Disponibilidade
+                  </div>
+                  <div style="font-size: 0.9rem; color: var(--accent)">
+                    ● Disponível
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="glow-line"></div>
+    <div class="glow-line"></div>
 
-  <!-- DIFERENCIAL -->
-  <section id="diferencial">
-    <div class="section-tag">Diferencial</div>
-    <h2 class="section-title reveal">Por que me<br /><em>contratar?</em></h2>
+    <!-- DIFERENCIAL -->
+    <section id="diferencial">
+      <div class="section-tag">Diferencial</div>
+      <h2 class="section-title reveal">Por que me<br /><em>contratar?</em></h2>
 
-    <div class="diff-grid">
-      <div class="diff-card reveal">
-        <div class="diff-num">01</div>
-        <h3 class="diff-title">Visão de produto completa</h3>
-        <p class="diff-desc">
-          Da concepção do banco de dados relacional à última etapa de
-          renderização no front-end. Entrego não apenas código, mas visão
-          estratégica alinhada às necessidades do negócio.
-        </p>
-        <div class="diff-icon">⬡</div>
+      <div class="diff-grid">
+        <div class="diff-card reveal">
+          <div class="diff-num">01</div>
+          <h3 class="diff-title">Visão de produto completa</h3>
+          <p class="diff-desc">
+            Da concepção do banco de dados relacional à última etapa de
+            renderização no front-end. Entrego não apenas código, mas visão
+            estratégica alinhada às necessidades do negócio.
+          </p>
+          <div class="diff-icon">⬡</div>
+        </div>
+        <div class="diff-card reveal" style="transition-delay: 0.1s">
+          <div class="diff-num">02</div>
+          <h3 class="diff-title">Especialidade em E-commerce</h3>
+          <p class="diff-desc">
+            Profunda experiência no desenvolvimento e implementação de
+            plataformas de vendas. Transações seguras, alta disponibilidade e
+            jornadas de conversão otimizadas.
+          </p>
+          <div class="diff-icon">⬡</div>
+        </div>
+        <div class="diff-card reveal" style="transition-delay: 0.2s">
+          <div class="diff-num">03</div>
+          <h3 class="diff-title">Escalabilidade & Micro-SaaS</h3>
+          <p class="diff-desc">
+            Expertise na criação de arquiteturas pensadas para o crescimento.
+            Desenvolvimento de soluções modulares preparadas para escalar junto
+            com a base de usuários.
+          </p>
+          <div class="diff-icon">⬡</div>
+        </div>
       </div>
-      <div class="diff-card reveal" style="transition-delay: 0.1s">
-        <div class="diff-num">02</div>
-        <h3 class="diff-title">Especialidade em E-commerce</h3>
-        <p class="diff-desc">
-          Profunda experiência no desenvolvimento e implementação de
-          plataformas de vendas. Transações seguras, alta disponibilidade e
-          jornadas de conversão otimizadas.
-        </p>
-        <div class="diff-icon">⬡</div>
-      </div>
-      <div class="diff-card reveal" style="transition-delay: 0.2s">
-        <div class="diff-num">03</div>
-        <h3 class="diff-title">Escalabilidade & Micro-SaaS</h3>
-        <p class="diff-desc">
-          Expertise na criação de arquiteturas pensadas para o crescimento.
-          Desenvolvimento de soluções modulares preparadas para escalar junto
-          com a base de usuários.
-        </p>
-        <div class="diff-icon">⬡</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CASES -->
-  <section id="cases">
-    <div class="section-tag">Trabalhos selecionados</div>
-    <h2 class="section-title reveal">Cases <em>&amp;</em><br />Projetos.</h2>
+    <!-- CASES -->
+    <section id="cases">
+      <div class="section-tag">Trabalhos selecionados</div>
+      <h2 class="section-title reveal">Cases <em>&amp;</em><br />Projetos.</h2>
 
-    <div class="cases-list">
-      <a href="http://mobiletti.com.br" target="_blank" class="case-item reveal">
-        <div class="case-num">01</div>
-        <div class="case-content">
-          <h3 class="case-title">Mobiletti</h3>
-          <p class="case-desc">
-            Configurador de produtos em tempo real para Shopify. O cliente
-            personaliza cores, estampas e dimensões, visualizando a montagem
-            instantaneamente antes da compra.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">React</span>
-            <span class="case-tag">TypeScript</span>
-            <span class="case-tag">Shopify</span>
-            <span class="case-tag">Liquid</span>
+      <div class="cases-grid">
+        <a
+          href="http://mobiletti.com.br"
+          target="_blank"
+          class="case-card reveal"
+        >
+          <div class="case-image-wrapper">
+            <img
+              src="assets/images/mobiletti.jpg"
+              alt="Mobiletti - Configurador de Produtos"
+            />
+            <div class="case-overlay">
+              <div class="case-arrow">↗</div>
+            </div>
           </div>
-        </div>
-        <div class="case-arrow">↗</div>
-      </a>
-
-      <a href="http://ressalvaproject.com.br" target="_blank" class="case-item reveal" style="transition-delay: 0.05s">
-        <div class="case-num">02</div>
-        <div class="case-content">
-          <h3 class="case-title">Ressalva Project</h3>
-          <p class="case-desc">
-            Tema personalizado Shopify. O DNA da Ressalva Project numa
-            experiência navegável — a estética da marca e a fluidez do usuário
-            em cada pixel.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">Shopify</span>
-            <span class="case-tag">Liquid</span>
-            <span class="case-tag">E-commerce</span>
+          <div class="case-info">
+            <div class="case-meta">
+              <span class="case-num">01</span>
+              <div class="case-tags">
+                <span class="case-tag">React</span>
+                <span class="case-tag">Shopify</span>
+              </div>
+            </div>
+            <h3 class="case-title">Mobiletti</h3>
+            <p class="case-desc">
+              Configurador de produtos em tempo real para Shopify. O cliente
+              personaliza cores, estampas e dimensões, visualizando a montagem
+              instantaneamente.
+            </p>
           </div>
-        </div>
-        <div class="case-arrow">↗</div>
-      </a>
-
-      <a href="http://praia.shop/" target="_blank" class="case-item reveal" style="transition-delay: 0.1s">
-        <div class="case-num">03</div>
-        <div class="case-content">
-          <h3 class="case-title">Praia</h3>
-          <p class="case-desc">
-            Desenvolvimento de tema para loja virtual na NuvemShop. Identidade
-            visual da marca unida a soluções técnicas de usabilidade — vitrine
-            digital moderna e responsiva.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">NuvemShop</span>
-            <span class="case-tag">JavaScript</span>
-            <span class="case-tag">E-commerce</span>
-          </div>
-        </div>
-        <div class="case-arrow">↗</div>
-      </a>
-
-      <a href="https://mundopura.com" target="_blank" class="case-item reveal" style="transition-delay: 0.1s">
-        <div class="case-num">04</div>
-        <div class="case-content">
-          <h3 class="case-title">Mundo Pura</h3>
-          <p class="case-desc">
-            Transformação da presença digital da marca por meio de um layout exclusivo, pensado para destacar produtos e
-            facilitar a navegação em qualquer tela.
-          </p>
-          <div class="case-tags">
-            <span class="case-tag">Shopify</span>
-            <span class="case-tag">Liquid</span>
-            <span class="case-tag">E-commerce</span>
-          </div>
-        </div>
-        <div class="case-arrow">↗</div>
-      </a>
-    </div>
-  </section>
-
-  <div class="glow-line"></div>
-
-  <!-- CONTATO -->
-  <section id="contato">
-    <div class="contact-wrap">
-      <div class="section-tag reveal">Vamos conversar</div>
-
-      <h2 class="contact-big reveal">
-        Vamos<br />
-        construir<br />
-        o <em>futuro</em><br />
-        juntos.
-      </h2>
-
-      <div class="contact-row reveal">
-        <a href="https://wa.me/+5511945691430?text=Oi!%20Quero%20iniciar%20meu%20projeto!" target="_blank"
-          class="btn-primary" style="font-size: 1rem; padding: 1.2rem 2.5rem">
-          Iniciar projeto <span class="arrow">→</span>
         </a>
 
-        <div class="contact-links">
-          <a href="https://github.com/Juansantoss07" target="_blank" class="contact-link">GitHub</a>
-          <a href="https://www.linkedin.com/in/juan-santos-developer/" target="_blank" class="contact-link">LinkedIn</a>
-          <a href="https://www.instagram.com/ojuandev/" target="_blank" class="contact-link">Instagram</a>
-          <a href="https://wa.me/+5511945691430" target="_blank" class="contact-link">WhatsApp</a>
+        <a
+          href="http://ressalvaproject.com.br"
+          target="_blank"
+          class="case-card reveal"
+          style="transition-delay: 0.1s"
+        >
+          <div class="case-image-wrapper">
+            <img
+              src="assets/images/ressalva.jpg"
+              alt="Ressalva Project - E-commerce"
+            />
+            <div class="case-overlay">
+              <div class="case-arrow">↗</div>
+            </div>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">
+              <span class="case-num">02</span>
+              <div class="case-tags">
+                <span class="case-tag">Shopify</span>
+                <span class="case-tag">Liquid</span>
+              </div>
+            </div>
+            <h3 class="case-title">Ressalva Project</h3>
+            <p class="case-desc">
+              Tema personalizado Shopify com foco em alta performance e estética
+              minimalista para marca de moda premium.
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="http://praia.shop/"
+          target="_blank"
+          class="case-card reveal"
+          style="transition-delay: 0.2s"
+        >
+          <div class="case-image-wrapper">
+            <img src="assets/images/praia.jpg" alt="Praia - Loja Virtual" />
+            <div class="case-overlay">
+              <div class="case-arrow">↗</div>
+            </div>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">
+              <span class="case-num">03</span>
+              <div class="case-tags">
+                <span class="case-tag">NuvemShop</span>
+                <span class="case-tag">JS</span>
+              </div>
+            </div>
+            <h3 class="case-title">Praia</h3>
+            <p class="case-desc">
+              Desenvolvimento de tema exclusivo para NuvemShop, integrando
+              identidade visual moderna e usabilidade otimizada.
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="https://www.ecle.studio"
+          target="_blank"
+          class="case-card reveal"
+          style="transition-delay: 0.3s"
+        >
+          <div class="case-image-wrapper">
+            <img src="assets/images/ecle.jpg" alt="Eclé" />
+            <div class="case-overlay">
+              <div class="case-arrow">↗</div>
+            </div>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">
+              <span class="case-num">04</span>
+              <div class="case-tags">
+                <span class="case-tag">Tray</span>
+                <span class="case-tag">HTML</span>
+                <span class="case-tag">CSS</span>
+                <span class="case-tag">JS</span>
+              </div>
+            </div>
+            <h3 class="case-title">Eclé</h3>
+            <p class="case-desc">
+              Criação de e-commerce sob medida na Tray, com o desenvolvimento de
+              módulos exclusivos e funcionalidades personalizadas para a marca.
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="https://mundopura.com"
+          target="_blank"
+          class="case-card reveal"
+          style="transition-delay: 0.3s"
+        >
+          <div class="case-image-wrapper">
+            <img
+              src="assets/images/mundopura.webp"
+              alt="Mundo Pura - E-commerce"
+            />
+            <div class="case-overlay">
+              <div class="case-arrow">↗</div>
+            </div>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">
+              <span class="case-num">05</span>
+              <div class="case-tags">
+                <span class="case-tag">Shopify</span>
+                <span class="case-tag">Liquid</span>
+              </div>
+            </div>
+            <h3 class="case-title">Mundo Pura</h3>
+            <p class="case-desc">
+              Transformação digital por meio de layout exclusivo pensado para
+              destacar produtos naturais e facilitar a conversão.
+            </p>
+          </div>
+        </a>
+
+        <!-- <a
+          href="https://www.drsergiofaria.com.br/"
+          target="_blank"
+          class="case-card reveal"
+          style="transition-delay: 0.3s"
+        >
+          <div class="case-image-wrapper">
+            <img src="assets/images/drsergio.jpg" alt="Dr. Sergio Faria" />
+            <div class="case-overlay">
+              <div class="case-arrow">↗</div>
+            </div>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">
+              <span class="case-num">06</span>
+              <div class="case-tags">
+                <span class="case-tag">HTML</span>
+                <span class="case-tag">CSS</span>
+                <span class="case-tag">JS</span>
+              </div>
+            </div>
+            <h3 class="case-title">Dr. Sergio Faria</h3>
+            <p class="case-desc">
+              Desenvolvimento de site para médico especialista em cirurgia
+              plástica.
+            </p>
+          </div>
+        </a> -->
+      </div>
+    </section>
+
+    <div class="glow-line"></div>
+
+    <!-- CONTATO -->
+    <section id="contato">
+      <div class="contact-wrap">
+        <div class="section-tag reveal">Vamos conversar</div>
+
+        <h2 class="contact-big reveal">
+          Vamos<br />
+          construir<br />
+          o <em>futuro</em><br />
+          juntos.
+        </h2>
+
+        <div class="contact-row reveal">
+          <a
+            href="https://wa.me/+5511945691430?text=Oi!%20Quero%20iniciar%20meu%20projeto!"
+            target="_blank"
+            class="btn-primary"
+            style="font-size: 1rem; padding: 1.2rem 2.5rem"
+          >
+            Iniciar projeto <span class="arrow">→</span>
+          </a>
+
+          <div class="contact-links">
+            <a
+              href="https://github.com/Juansantoss07"
+              target="_blank"
+              class="contact-link"
+              >GitHub</a
+            >
+            <a
+              href="https://www.linkedin.com/in/juan-santos-developer/"
+              target="_blank"
+              class="contact-link"
+              >LinkedIn</a
+            >
+            <a
+              href="https://www.instagram.com/ojuandev/"
+              target="_blank"
+              class="contact-link"
+              >Instagram</a
+            >
+            <a
+              href="https://wa.me/+5511945691430"
+              target="_blank"
+              class="contact-link"
+              >WhatsApp</a
+            >
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-copy">
-      © 2026 OJuandev — Todos os direitos reservados.
-    </div>
-    <div class="footer-made">Desenvolvido por <span>OJuandev</span></div>
-  </footer>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-copy">
+        © 2026 OJuandev — Todos os direitos reservados.
+      </div>
+      <div class="footer-made">Desenvolvido por <span>OJuandev</span></div>
+    </footer>
 
-  <script src="assets/js/main.js"></script>
-</body>
-
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
