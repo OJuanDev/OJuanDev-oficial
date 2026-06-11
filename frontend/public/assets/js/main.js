@@ -67,9 +67,9 @@ const heroObs = new IntersectionObserver(
   (entries) => {
     if (entries[0].isIntersecting) {
       setTimeout(() => {
-        animateCounter(document.getElementById("counter-projects"), 20, "+");
-        animateCounter(document.getElementById("counter-years"), 4, "+");
-        animateCounter(document.getElementById("counter-clients"), 15, "+");
+        animateCounter(document.getElementById("counter-projects"), 100, "+");
+        animateCounter(document.getElementById("counter-years"), 5, "+");
+        animateCounter(document.getElementById("counter-clients"), 50, "+");
       }, 900);
       heroObs.disconnect();
     }
