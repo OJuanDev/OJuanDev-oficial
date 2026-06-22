@@ -1,589 +1,483 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juan Santos — Engenheiro de Software</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan Santos — Engenheiro de Software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400&display=swap"
+    rel="stylesheet" />
+</head>
 
-    <!-- NAV -->
-    <nav id="nav">
-      <a href="#hero" class="nav-logo">OJUANDEV<span>.</span></a>
-      <ul class="nav-links">
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#diferencial">Diferencial</a></li>
-        <li><a href="#cases">Cases</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-      <a
-        href="https://wa.me/+5511945691430?text=Oi!%20Quero%20iniciar%20meu%20projeto!"
-        target="_blank"
-        class="nav-cta"
-        >Iniciar projeto</a
-      >
-    </nav>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- HERO -->
-    <section id="hero">
-      <div class="hero-grid"></div>
-      <div class="hero-orb orb1"></div>
-      <div class="hero-orb orb2"></div>
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">OJUANDEV<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#diferencial">Diferencial</a></li>
+      <li><a href="#cases">Cases</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a href="https://wa.me/+5511945691430?text=Oi!%20Quero%20iniciar%20meu%20projeto!" target="_blank"
+      class="nav-cta">Iniciar projeto</a>
+  </nav>
 
-      <div class="hero-label">// Engenheiro de Software & Arquiteto Web</div>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
 
-      <h1 class="hero-title">
-        Full<br />
-        <em>Stack</em><br />
-        Developer
-      </h1>
+    <div class="hero-label">// Engenheiro de Software & Arquiteto Web</div>
 
-      <div class="hero-bottom">
-        <p class="hero-desc">
-          Especialista em <strong>JS/TS, React e Node.js</strong>. Arquitetando
-          soluções digitais robustas com foco em escalabilidade, performance e
-          interfaces imaculadas.
-        </p>
-        <div>
-          <div class="hero-cta-group">
-            <a href="#cases" class="btn-primary"
-              >Ver projetos <span class="arrow">→</span></a
-            >
-            <a href="#sobre" class="btn-ghost">Sobre mim</a>
+    <h1 class="hero-title">
+      Full<br />
+      <em>Stack</em><br />
+      Developer
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        Especialista em <strong>JS/TS, React e Node.js</strong>. Arquitetando
+        soluções digitais robustas com foco em escalabilidade, performance e
+        interfaces imaculadas.
+      </p>
+      <div>
+        <div class="hero-cta-group">
+          <a href="#cases" class="btn-primary">Ver projetos <span class="arrow">→</span></a>
+          <a href="#sobre" class="btn-ghost">Sobre mim</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num" id="counter-projects">0</div>
+            <div class="stat-label">Projetos</div>
           </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <div class="stat-num" id="counter-projects">0</div>
-              <div class="stat-label">Projetos</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num" id="counter-years">0</div>
-              <div class="stat-label">Anos exp.</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num" id="counter-clients">0</div>
-              <div class="stat-label">Clientes</div>
-            </div>
+          <div class="stat">
+            <div class="stat-num" id="counter-years">0</div>
+            <div class="stat-label">Anos exp.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num" id="counter-clients">0</div>
+            <div class="stat-label">Clientes</div>
           </div>
         </div>
       </div>
-
-      <div class="scroll-hint" style="margin-top: 4rem">
-        <div class="scroll-line"></div>
-        scroll
-      </div>
-    </section>
-
-    <!-- MARQUEE -->
-    <div class="marquee-section">
-      <div class="marquee-track" id="marquee">
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Javascript</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Typescript</span
-        >
-        <span class="marquee-item"><span class="marquee-dot"></span>React</span>
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Next.js</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Node.js</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>PostgreSQL</span
-        >
-        <span class="marquee-item"><span class="marquee-dot"></span>AWS</span>
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Docker</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Shopify</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>E-commerce</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Micro-SaaS</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Arquitetura de Software</span
-        >
-        <!-- Duplicate for seamless loop -->
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Javascript</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Typescript</span
-        >
-        <span class="marquee-item"><span class="marquee-dot"></span>React</span>
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Next.js</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Node.js</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>PostgreSQL</span
-        >
-        <span class="marquee-item"><span class="marquee-dot"></span>AWS</span>
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Docker</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Shopify</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>E-commerce</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Micro-SaaS</span
-        >
-        <span class="marquee-item"
-          ><span class="marquee-dot"></span>Arquitetura de Software</span
-        >
-      </div>
     </div>
 
-    <!-- SOBRE -->
-    <section id="sobre">
-      <div class="section-tag">Sobre mim</div>
-      <h2 class="section-title reveal">
-        Pós-graduado em<br /><em>Engenharia</em>
-      </h2>
-      <div
-        class="section-title reveal"
-        style="
+    <div class="scroll-hint" style="margin-top: 4rem">
+      <div class="scroll-line"></div>
+      scroll
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track" id="marquee">
+      <span class="marquee-item"><span class="marquee-dot"></span>Javascript</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Typescript</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>React</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Next.js</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Node.js</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>PostgreSQL</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>AWS</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Docker</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Shopify</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>E-commerce</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Micro-SaaS</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Arquitetura de Software</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item"><span class="marquee-dot"></span>Javascript</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Typescript</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>React</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Next.js</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Node.js</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>PostgreSQL</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>AWS</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Docker</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Shopify</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>E-commerce</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Micro-SaaS</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Arquitetura de Software</span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="section-tag">Sobre mim</div>
+    <h2 class="section-title reveal">
+      Pós-graduado em<br /><em>Engenharia</em>
+    </h2>
+    <div class="section-title reveal" style="
           font-size: clamp(2rem, 4vw, 4rem);
           color: var(--muted);
           font-weight: 400;
           margin-bottom: 0;
-        "
-      >
-        de Software.
-      </div>
+        ">
+      de Software.
+    </div>
 
-      <div class="sobre-grid">
-        <div class="reveal">
-          <div class="sobre-text">
-            <p>
-              Desenvolvedor Full Stack com foco em
-              <strong>ecossistemas modernos de JavaScript e TypeScript</strong>.
-              Atualmente coordenando projetos de implementação de e-commerce e
-              arquitetando soluções digitais robustas.
-            </p>
-            <p>
-              Minha filosofia de código é baseada em
-              <strong
-                >escalabilidade, performance e interfaces imaculadas</strong
-              >
-              — cada linha escrita com intenção estratégica alinhada às
-              necessidades do negócio.
-            </p>
-            <p>
-              Da concepção do banco de dados relacional à última etapa de
-              renderização no front-end, entrego não apenas código, mas
-              <strong>visão de produto completa</strong>.
-            </p>
-          </div>
-
-          <div class="skills-grid" style="margin-top: 2.5rem">
-            <div class="skill-pill">JavaScript</div>
-            <div class="skill-pill">TypeScript</div>
-            <div class="skill-pill">React / Next.js</div>
-            <div class="skill-pill">Node.js</div>
-            <div class="skill-pill">PostgreSQL</div>
-            <div class="skill-pill">AWS</div>
-            <div class="skill-pill">Docker</div>
-            <div class="skill-pill">Git / CI-CD</div>
-            <div class="skill-pill">Shopify / Liquid</div>
-            <div class="skill-pill">PHP</div>
-            <div class="skill-pill">Magento 2</div>
-            <div class="skill-pill">E-commerce</div>
-          </div>
+    <div class="sobre-grid">
+      <div class="reveal">
+        <div class="sobre-text">
+          <p>
+            Desenvolvedor Full Stack com foco em
+            <strong>ecossistemas modernos de JavaScript e TypeScript</strong>.
+            Atualmente coordenando projetos de implementação de e-commerce e
+            arquitetando soluções digitais robustas.
+          </p>
+          <p>
+            Minha filosofia de código é baseada em
+            <strong>escalabilidade, performance e interfaces imaculadas</strong>
+            — cada linha escrita com intenção estratégica alinhada às
+            necessidades do negócio.
+          </p>
+          <p>
+            Da concepção do banco de dados relacional à última etapa de
+            renderização no front-end, entrego não apenas código, mas
+            <strong>visão de produto completa</strong>.
+          </p>
         </div>
 
-        <div class="sobre-visual reveal" style="transition-delay: 0.2s">
-          <div class="about-card">
-            <div class="about-quote">
-              "Código limpo não é escrito por acaso — é resultado de disciplina,
-              visão e obsessão com qualidade."
-            </div>
-            <div class="about-badge">Pós-graduado em Eng. de Software</div>
-            <div
-              style="
+        <div class="skills-grid" style="margin-top: 2.5rem">
+          <div class="skill-pill">JavaScript</div>
+          <div class="skill-pill">TypeScript</div>
+          <div class="skill-pill">React / Next.js</div>
+          <div class="skill-pill">Node.js</div>
+          <div class="skill-pill">PostgreSQL</div>
+          <div class="skill-pill">AWS</div>
+          <div class="skill-pill">Docker</div>
+          <div class="skill-pill">Git / CI-CD</div>
+          <div class="skill-pill">Shopify / Liquid</div>
+          <div class="skill-pill">PHP</div>
+          <div class="skill-pill">Magento 2</div>
+          <div class="skill-pill">E-commerce</div>
+        </div>
+      </div>
+
+      <div class="sobre-visual reveal" style="transition-delay: 0.2s">
+        <div class="about-card">
+          <div class="about-quote">
+            "Código limpo não é escrito por acaso — é resultado de disciplina,
+            visão e obsessão com qualidade."
+          </div>
+          <div class="about-badge">Pós-graduado em Eng. de Software</div>
+          <div style="
                 margin-top: 2rem;
                 padding-top: 2rem;
                 border-top: 1px solid var(--border);
-              "
-            >
-              <div class="about-info-grid">
-                <div>
-                  <div
-                    style="
+              ">
+            <div class="about-info-grid">
+              <div>
+                <div style="
                       font-family: &quot;JetBrains Mono&quot;, monospace;
                       font-size: 0.7rem;
                       color: var(--accent);
                       text-transform: uppercase;
                       letter-spacing: 0.1em;
                       margin-bottom: 0.5rem;
-                    "
-                  >
-                    Foco
-                  </div>
-                  <div style="font-size: 0.9rem; color: var(--muted)">
-                    Arquitetura Web & E-commerce
-                  </div>
+                    ">
+                  Foco
                 </div>
-                <div>
-                  <div
-                    style="
+                <div style="font-size: 0.9rem; color: var(--muted)">
+                  Arquitetura Web & E-commerce
+                </div>
+              </div>
+              <div>
+                <div style="
                       font-family: &quot;JetBrains Mono&quot;, monospace;
                       font-size: 0.7rem;
                       color: var(--accent);
                       text-transform: uppercase;
                       letter-spacing: 0.1em;
                       margin-bottom: 0.5rem;
-                    "
-                  >
-                    Stack
-                  </div>
-                  <div style="font-size: 0.9rem; color: var(--muted)">
-                    JS/TS · React · Node.js
-                  </div>
+                    ">
+                  Stack
                 </div>
-                <div>
-                  <div
-                    style="
+                <div style="font-size: 0.9rem; color: var(--muted)">
+                  JS/TS · React · Node.js
+                </div>
+              </div>
+              <div>
+                <div style="
                       font-family: &quot;JetBrains Mono&quot;, monospace;
                       font-size: 0.7rem;
                       color: var(--accent);
                       text-transform: uppercase;
                       letter-spacing: 0.1em;
                       margin-bottom: 0.5rem;
-                    "
-                  >
-                    Localização
-                  </div>
-                  <div style="font-size: 0.9rem; color: var(--muted)">
-                    São Paulo, Brasil
-                  </div>
+                    ">
+                  Localização
                 </div>
-                <div>
-                  <div
-                    style="
+                <div style="font-size: 0.9rem; color: var(--muted)">
+                  São Paulo, Brasil
+                </div>
+              </div>
+              <div>
+                <div style="
                       font-family: &quot;JetBrains Mono&quot;, monospace;
                       font-size: 0.7rem;
                       color: var(--accent);
                       text-transform: uppercase;
                       letter-spacing: 0.1em;
                       margin-bottom: 0.5rem;
-                    "
-                  >
-                    Disponibilidade
-                  </div>
-                  <div style="font-size: 0.9rem; color: var(--accent)">
-                    ● Disponível para freelance
-                  </div>
+                    ">
+                  Disponibilidade
                 </div>
+                <div style="font-size: 0.9rem; color: var(--accent)">
+                  ● Disponível para freelance
+                </div>
+              </div>
 
-                <div>
-                  <div
-                    style="
+              <div>
+                <div style="
                       font-family: &quot;JetBrains Mono&quot;, monospace;
                       font-size: 0.7rem;
                       color: var(--accent);
                       text-transform: uppercase;
                       letter-spacing: 0.1em;
                       margin-bottom: 0.5rem;
-                    "
-                  >
-                    Cargo atual
-                  </div>
-                  <div style="font-size: 0.9rem; color: var(--muted)">
-                    Desenvolvedor Full Stack/ Coordenador de Projetos na
-                    Dizycommerce e CEO do grupo OJuanDev.
-                  </div>
+                    ">
+                  Cargo atual
+                </div>
+                <div style="font-size: 0.9rem; color: var(--muted)">
+                  Desenvolvedor Full Stack/ Coordenador de Projetos na
+                  Dizycommerce e CEO do grupo OJuanDev.
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <div class="glow-line"></div>
+  <div class="glow-line"></div>
 
-    <!-- DIFERENCIAL -->
-    <section id="diferencial">
-      <div class="section-tag">Diferencial</div>
-      <h2 class="section-title reveal">Por que me<br /><em>contratar?</em></h2>
+  <!-- DIFERENCIAL -->
+  <section id="diferencial">
+    <div class="section-tag">Diferencial</div>
+    <h2 class="section-title reveal">Por que me<br /><em>contratar?</em></h2>
 
-      <div class="diff-grid">
-        <div class="diff-card reveal">
-          <div class="diff-num">01</div>
-          <h3 class="diff-title">Visão de produto completa</h3>
-          <p class="diff-desc">
-            Da concepção do banco de dados relacional à última etapa de
-            renderização no front-end. Entrego não apenas código, mas visão
-            estratégica alinhada às necessidades do negócio.
-          </p>
-          <div class="diff-icon">⬡</div>
-        </div>
-        <div class="diff-card reveal" style="transition-delay: 0.1s">
-          <div class="diff-num">02</div>
-          <h3 class="diff-title">Especialidade em E-commerce</h3>
-          <p class="diff-desc">
-            Profunda experiência no desenvolvimento e implementação de
-            plataformas de vendas. Transações seguras, alta disponibilidade e
-            jornadas de conversão otimizadas.
-          </p>
-          <div class="diff-icon">⬡</div>
-        </div>
-        <div class="diff-card reveal" style="transition-delay: 0.2s">
-          <div class="diff-num">03</div>
-          <h3 class="diff-title">Escalabilidade & Micro-SaaS</h3>
-          <p class="diff-desc">
-            Expertise na criação de arquiteturas pensadas para o crescimento.
-            Desenvolvimento de soluções modulares preparadas para escalar junto
-            com a base de usuários.
-          </p>
-          <div class="diff-icon">⬡</div>
-        </div>
+    <div class="diff-grid">
+      <div class="diff-card reveal">
+        <div class="diff-num">01</div>
+        <h3 class="diff-title">Visão de produto completa</h3>
+        <p class="diff-desc">
+          Da concepção do banco de dados relacional à última etapa de
+          renderização no front-end. Entrego não apenas código, mas visão
+          estratégica alinhada às necessidades do negócio.
+        </p>
+        <div class="diff-icon">⬡</div>
       </div>
-    </section>
+      <div class="diff-card reveal" style="transition-delay: 0.1s">
+        <div class="diff-num">02</div>
+        <h3 class="diff-title">Especialidade em E-commerce</h3>
+        <p class="diff-desc">
+          Profunda experiência no desenvolvimento e implementação de
+          plataformas de vendas. Transações seguras, alta disponibilidade e
+          jornadas de conversão otimizadas.
+        </p>
+        <div class="diff-icon">⬡</div>
+      </div>
+      <div class="diff-card reveal" style="transition-delay: 0.2s">
+        <div class="diff-num">03</div>
+        <h3 class="diff-title">Escalabilidade & Micro-SaaS</h3>
+        <p class="diff-desc">
+          Expertise na criação de arquiteturas pensadas para o crescimento.
+          Desenvolvimento de soluções modulares preparadas para escalar junto
+          com a base de usuários.
+        </p>
+        <div class="diff-icon">⬡</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- CASES -->
-    <section id="cases">
-      <div class="section-tag">Trabalhos selecionados</div>
-      <h2 class="section-title reveal">
-        Cases <em>&amp;</em><br />Projetos Reais.
-      </h2>
+  <!-- CASES -->
+  <section id="cases">
+    <div class="section-tag">Trabalhos selecionados</div>
+    <h2 class="section-title reveal">
+      Cases <em>&amp;</em><br />Projetos Reais.
+    </h2>
 
-      <div class="cases-grid">
-        <a
-          href="http://mobiletti.com.br"
-          target="_blank"
-          class="case-card reveal"
-        >
-          <div class="case-image-wrapper">
-            <img
-              src="assets/images/mobiletti.jpg"
-              alt="Mobiletti - Configurador de Produtos"
-            />
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
+    <div class="cases-grid">
+      <a href="http://mobiletti.com.br" target="_blank" class="case-card reveal">
+        <div class="case-image-wrapper">
+          <img src="assets/images/mobiletti.jpg" alt="Mobiletti - Configurador de Produtos" />
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">01</span>
+            <div class="case-tags">
+              <span class="case-tag">React</span>
+              <span class="case-tag">Shopify</span>
             </div>
           </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">01</span>
-              <div class="case-tags">
-                <span class="case-tag">React</span>
-                <span class="case-tag">Shopify</span>
-              </div>
-            </div>
-            <h3 class="case-title">Mobiletti</h3>
-            <p class="case-desc">
-              Configurador de produtos em tempo real para Shopify. O cliente
-              personaliza cores, estampas e dimensões, visualizando a montagem
-              instantaneamente.
-            </p>
-          </div>
-        </a>
+          <h3 class="case-title">Mobiletti</h3>
+          <p class="case-desc">
+            Configurador de produtos em tempo real para Shopify. O cliente
+            personaliza cores, estampas e dimensões, visualizando a montagem
+            instantaneamente.
+          </p>
+        </div>
+      </a>
 
-        <a
-          href="http://ressalvaproject.com.br"
-          target="_blank"
-          class="case-card reveal"
-          style="transition-delay: 0.1s"
-        >
-          <div class="case-image-wrapper">
-            <img
-              src="assets/images/ressalva.jpg"
-              alt="Ressalva Project - E-commerce"
-            />
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
+      <a href="http://ressalvaproject.com.br" target="_blank" class="case-card reveal" style="transition-delay: 0.1s">
+        <div class="case-image-wrapper">
+          <img src="assets/images/ressalva.jpg" alt="Ressalva Project - E-commerce" />
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">02</span>
+            <div class="case-tags">
+              <span class="case-tag">Shopify</span>
+              <span class="case-tag">Liquid</span>
             </div>
           </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">02</span>
-              <div class="case-tags">
-                <span class="case-tag">Shopify</span>
-                <span class="case-tag">Liquid</span>
-              </div>
-            </div>
-            <h3 class="case-title">Ressalva Project</h3>
-            <p class="case-desc">
-              Tema personalizado Shopify com foco em alta performance e estética
-              minimalista para marca de moda premium.
-            </p>
-          </div>
-        </a>
+          <h3 class="case-title">Ressalva Project</h3>
+          <p class="case-desc">
+            Tema personalizado Shopify com foco em alta performance e estética
+            minimalista para marca de moda premium.
+          </p>
+        </div>
+      </a>
 
-        <a
-          href="http://praia.shop/"
-          target="_blank"
-          class="case-card reveal"
-          style="transition-delay: 0.2s"
-        >
-          <div class="case-image-wrapper">
-            <img src="assets/images/praia.jpg" alt="Praia - Loja Virtual" />
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
+      <a href="http://praia.shop/" target="_blank" class="case-card reveal" style="transition-delay: 0.2s">
+        <div class="case-image-wrapper">
+          <img src="assets/images/praia.jpg" alt="Praia - Loja Virtual" />
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">03</span>
+            <div class="case-tags">
+              <span class="case-tag">NuvemShop</span>
+              <span class="case-tag">JS</span>
             </div>
           </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">03</span>
-              <div class="case-tags">
-                <span class="case-tag">NuvemShop</span>
-                <span class="case-tag">JS</span>
-              </div>
-            </div>
-            <h3 class="case-title">Praia</h3>
-            <p class="case-desc">
-              Desenvolvimento de tema exclusivo para NuvemShop, integrando
-              identidade visual moderna e usabilidade otimizada.
-            </p>
-          </div>
-        </a>
+          <h3 class="case-title">Praia</h3>
+          <p class="case-desc">
+            Desenvolvimento de tema exclusivo para NuvemShop, integrando
+            identidade visual moderna e usabilidade otimizada.
+          </p>
+        </div>
+      </a>
 
-        <a
-          href="https://www.ecle.studio"
-          target="_blank"
-          class="case-card reveal"
-          style="transition-delay: 0.3s"
-        >
-          <div class="case-image-wrapper">
-            <img src="assets/images/ecle.jpg" alt="Eclé" />
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
+      <a href="https://www.ecle.studio" target="_blank" class="case-card reveal" style="transition-delay: 0.3s">
+        <div class="case-image-wrapper">
+          <img src="assets/images/ecle.jpg" alt="Eclé" />
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">04</span>
+            <div class="case-tags">
+              <span class="case-tag">Tray</span>
+              <span class="case-tag">HTML</span>
+              <span class="case-tag">CSS</span>
+              <span class="case-tag">JS</span>
             </div>
           </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">04</span>
-              <div class="case-tags">
-                <span class="case-tag">Tray</span>
-                <span class="case-tag">HTML</span>
-                <span class="case-tag">CSS</span>
-                <span class="case-tag">JS</span>
-              </div>
-            </div>
-            <h3 class="case-title">Eclé</h3>
-            <p class="case-desc">
-              Criação de e-commerce sob medida na Tray, com o desenvolvimento de
-              módulos exclusivos e funcionalidades personalizadas para a marca.
-            </p>
-          </div>
-        </a>
+          <h3 class="case-title">Eclé</h3>
+          <p class="case-desc">
+            Criação de e-commerce sob medida na Tray, com o desenvolvimento de
+            módulos exclusivos e funcionalidades personalizadas para a marca.
+          </p>
+        </div>
+      </a>
 
-        <a
-          href="https://mundopura.com"
-          target="_blank"
-          class="case-card reveal"
-          style="transition-delay: 0.3s"
-        >
-          <div class="case-image-wrapper">
-            <img
-              src="assets/images/mundopura.webp"
-              alt="Mundo Pura - E-commerce"
-            />
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
+      <a href="https://mundopura.com" target="_blank" class="case-card reveal" style="transition-delay: 0.3s">
+        <div class="case-image-wrapper">
+          <img src="assets/images/mundopura.webp" alt="Mundo Pura - E-commerce" />
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">05</span>
+            <div class="case-tags">
+              <span class="case-tag">Shopify</span>
+              <span class="case-tag">Liquid</span>
             </div>
           </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">05</span>
-              <div class="case-tags">
-                <span class="case-tag">Shopify</span>
-                <span class="case-tag">Liquid</span>
-              </div>
-            </div>
-            <h3 class="case-title">Mundo Pura</h3>
-            <p class="case-desc">
-              Transformação digital por meio de layout exclusivo pensado para
-              destacar produtos naturais e facilitar a conversão.
-            </p>
-          </div>
-        </a>
+          <h3 class="case-title">Mundo Pura</h3>
+          <p class="case-desc">
+            Transformação digital por meio de layout exclusivo pensado para
+            destacar produtos naturais e facilitar a conversão.
+          </p>
+        </div>
+      </a>
 
-        <a
-          href="https://studio-oko.vercel.app/"
-          target="_blank"
-          class="case-card reveal"
-          style="transition-delay: 0.3s"
-        >
-          <div class="case-image-wrapper">
-            <img src="assets/images/3.png" alt="Studio OKO" />
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
+      <a href="https://studio-oko.vercel.app/" target="_blank" class="case-card reveal" style="transition-delay: 0.3s">
+        <div class="case-image-wrapper">
+          <img src="assets/images/3.png" alt="Studio OKO" />
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">05</span>
+            <div class="case-tags">
+              <span class="case-tag">HTML</span>
+              <span class="case-tag">CSS</span>
+              <span class="case-tag">JS</span>
+              <span class="case-tag">Tailwind</span>
             </div>
           </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">05</span>
-              <div class="case-tags">
-                <span class="case-tag">HTML</span>
-                <span class="case-tag">CSS</span>
-                <span class="case-tag">JS</span>
-                <span class="case-tag">Tailwind</span>
-              </div>
-            </div>
-            <h3 class="case-title">Stúdio OKO</h3>
-            <p class="case-desc">
-              Desenvolvimento de site institucional para Stúdio OKO -
-              especialista em criação de temas Shopify Premium do grupo
-              OJuanDev.
-            </p>
-          </div>
-        </a>
+          <h3 class="case-title">Stúdio OKO</h3>
+          <p class="case-desc">
+            Desenvolvimento de site institucional para Stúdio OKO -
+            especialista em criação de temas Shopify Premium do grupo
+            OJuanDev.
+          </p>
+        </div>
+      </a>
 
-        <a
-          href="https://www.cubibrasil.com.br"
-          target="_blank"
-          class="case-card reveal"
-          style="transition-delay: 0.3s"
-        >
-          <div class="case-image-wrapper">
-            <img src="assets/images/cubi.jpg" alt="Studio OKO" />
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
+      <a href="https://www.cubibrasil.com.br" target="_blank" class="case-card reveal" style="transition-delay: 0.3s">
+        <div class="case-image-wrapper">
+          <img src="assets/images/cubi.jpg" alt="Studio OKO" />
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">05</span>
+            <div class="case-tags">
+              <span class="case-tag">REACT</span>
+              <span class="case-tag">Shopify</span>
+              <span class="case-tag">Lovable</span>
+              <span class="case-tag">JS</span>
             </div>
           </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">05</span>
-              <div class="case-tags">
-                <span class="case-tag">REACT</span>
-                <span class="case-tag">Shopify</span>
-                <span class="case-tag">Lovable</span>
-                <span class="case-tag">JS</span>
-              </div>
-            </div>
-            <h3 class="case-title">CUBI</h3>
-            <p class="case-desc">
-              Frontend fornecido pela marca e desenvolvido no Lovable. Realizada
-              a integração completa com o ecossistema Shopify e implementação de
-              funcionalidades adicionais.
-            </p>
-          </div>
-        </a>
-        <!-- <a
+          <h3 class="case-title">CUBI</h3>
+          <p class="case-desc">
+            Frontend fornecido pela marca e desenvolvido no Lovable. Realizada
+            a integração completa com o ecossistema Shopify e implementação de
+            funcionalidades adicionais.
+          </p>
+        </div>
+      </a>
+      <!-- <a
           href="https://www.drsergiofaria.com.br/"
           target="_blank"
           class="case-card reveal"
@@ -611,310 +505,233 @@
             </p>
           </div>
         </a> -->
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <div class="glow-line"></div>
+  <div class="glow-line"></div>
 
-    <!-- PROJETOS PARTICULARES -->
-    <section id="projetos-particulares">
-      <div class="section-tag">Open Source &amp; Pessoal</div>
-      <div class="section-header-row">
-        <h2 class="section-title reveal">Projetos <em>Particulares.</em></h2>
-        <a
-          href="https://github.com/Juansantoss07"
-          target="_blank"
-          class="github-btn reveal"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
-            />
-          </svg>
-          Ver no GitHub
-          <span class="arrow">→</span>
-        </a>
-      </div>
+  <!-- PROJETOS PARTICULARES -->
+  <section id="projetos-particulares">
+    <div class="section-tag">Open Source &amp; Pessoal</div>
+    <div class="section-header-row">
+      <h2 class="section-title reveal">Projetos <em>Particulares.</em></h2>
+      <a href="https://github.com/OJuanDev" target="_blank" class="github-btn reveal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+          aria-hidden="true">
+          <path
+            d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+        </svg>
+        Ver no GitHub
+        <span class="arrow">→</span>
+      </a>
+    </div>
 
-      <div class="cases-grid">
-        <a
-          href="https://github.com/Juansantoss07"
-          target="_blank"
-          class="case-card reveal"
-        >
-          <div
-            class="case-image-wrapper case-image-placeholder"
-            style="
+    <div class="cases-grid">
+      <a href="https://github.com/Juansantoss07" target="_blank" class="case-card reveal">
+        <div class="case-image-wrapper case-image-placeholder" style="
               background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
               display: flex;
               align-items: center;
               justify-content: center;
-            "
-          >
-            <div class="project-icon-wrap" style="text-align: center">
-              <span style="font-size: 3rem">🛒</span>
-              <div
-                style="
+            ">
+          <div class="project-icon-wrap" style="text-align: center">
+            <span style="font-size: 3rem">🛒</span>
+            <div style="
                   font-family: &quot;JetBrains Mono&quot;, monospace;
                   font-size: 0.65rem;
                   color: var(--accent);
                   letter-spacing: 0.15em;
                   text-transform: uppercase;
                   margin-top: 0.75rem;
-                "
-              >
-                E-commerce Engine
-              </div>
-            </div>
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
+                ">
+              E-commerce Engine
             </div>
           </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">01</span>
-              <div class="case-tags">
-                <span class="case-tag">Node.js</span>
-                <span class="case-tag">React</span>
-                <span class="case-tag">PostgreSQL</span>
-              </div>
-            </div>
-            <h3 class="case-title">CartFlow</h3>
-            <p class="case-desc">
-              Engine de e-commerce modular construída do zero com Node.js e
-              React. Suporta múltiplos gateways de pagamento, gestão de estoque
-              em tempo real e painel administrativo completo.
-            </p>
-          </div>
-        </a>
-
-        <a
-          href="https://github.com/Juansantoss07"
-          target="_blank"
-          class="case-card reveal"
-          style="transition-delay: 0.1s"
-        >
-          <div
-            class="case-image-wrapper case-image-placeholder"
-            style="
-              background: linear-gradient(135deg, #0f0f0f 0%, #161616 100%);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <div class="project-icon-wrap" style="text-align: center">
-              <span style="font-size: 3rem">🤖</span>
-              <div
-                style="
-                  font-family: &quot;JetBrains Mono&quot;, monospace;
-                  font-size: 0.65rem;
-                  color: var(--accent);
-                  letter-spacing: 0.15em;
-                  text-transform: uppercase;
-                  margin-top: 0.75rem;
-                "
-              >
-                AI / Automação
-              </div>
-            </div>
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
-            </div>
-          </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">02</span>
-              <div class="case-tags">
-                <span class="case-tag">TypeScript</span>
-                <span class="case-tag">OpenAI</span>
-                <span class="case-tag">Next.js</span>
-              </div>
-            </div>
-            <h3 class="case-title">SaaS Copilot</h3>
-            <p class="case-desc">
-              Plataforma Micro-SaaS com IA integrada para automação de conteúdo.
-              Geração de textos, análise de sentimentos e sugestões de SEO —
-              tudo em uma interface minimalista.
-            </p>
-          </div>
-        </a>
-
-        <a
-          href="https://github.com/Juansantoss07"
-          target="_blank"
-          class="case-card reveal"
-          style="transition-delay: 0.2s"
-        >
-          <div
-            class="case-image-wrapper case-image-placeholder"
-            style="
-              background: linear-gradient(135deg, #0f0f0f 0%, #161616 100%);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <div class="project-icon-wrap" style="text-align: center">
-              <span style="font-size: 3rem">📊</span>
-              <div
-                style="
-                  font-family: &quot;JetBrains Mono&quot;, monospace;
-                  font-size: 0.65rem;
-                  color: var(--accent);
-                  letter-spacing: 0.15em;
-                  text-transform: uppercase;
-                  margin-top: 0.75rem;
-                "
-              >
-                Analytics Dashboard
-              </div>
-            </div>
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
-            </div>
-          </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">03</span>
-              <div class="case-tags">
-                <span class="case-tag">React</span>
-                <span class="case-tag">D3.js</span>
-                <span class="case-tag">Express</span>
-              </div>
-            </div>
-            <h3 class="case-title">MetricBoard</h3>
-            <p class="case-desc">
-              Dashboard de analytics em tempo real com visualizações interativas
-              via D3.js. Conecta múltiplas fontes de dados via API REST e exibe
-              KPIs de forma elegante e responsiva.
-            </p>
-          </div>
-        </a>
-
-        <a
-          href="https://github.com/Juansantoss07"
-          target="_blank"
-          class="case-card reveal"
-          style="transition-delay: 0.3s"
-        >
-          <div
-            class="case-image-wrapper case-image-placeholder"
-            style="
-              background: linear-gradient(135deg, #0f0f0f 0%, #161616 100%);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <div class="project-icon-wrap" style="text-align: center">
-              <span style="font-size: 3rem">🔐</span>
-              <div
-                style="
-                  font-family: &quot;JetBrains Mono&quot;, monospace;
-                  font-size: 0.65rem;
-                  color: var(--accent);
-                  letter-spacing: 0.15em;
-                  text-transform: uppercase;
-                  margin-top: 0.75rem;
-                "
-              >
-                Auth / Segurança
-              </div>
-            </div>
-            <div class="case-overlay">
-              <div class="case-arrow">↗</div>
-            </div>
-          </div>
-          <div class="case-info">
-            <div class="case-meta">
-              <span class="case-num">04</span>
-              <div class="case-tags">
-                <span class="case-tag">Node.js</span>
-                <span class="case-tag">JWT</span>
-                <span class="case-tag">Docker</span>
-              </div>
-            </div>
-            <h3 class="case-title">AuthVault</h3>
-            <p class="case-desc">
-              Microsserviço de autenticação robusto com suporte a OAuth 2.0, JWT
-              de curta duração, refresh tokens seguros e controle de sessões
-              multi-dispositivo. Pronto para produção com Docker.
-            </p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <div class="glow-line"></div>
-
-    <!-- CONTATO -->
-    <section id="contato">
-      <div class="contact-wrap">
-        <div class="section-tag reveal">Vamos conversar</div>
-
-        <h2 class="contact-big reveal">
-          Vamos<br />
-          construir<br />
-          o <em>futuro</em><br />
-          juntos.
-        </h2>
-
-        <div class="contact-row reveal">
-          <a
-            href="https://wa.me/+5511945691430?text=Oi!%20Quero%20iniciar%20meu%20projeto!"
-            target="_blank"
-            class="btn-primary"
-            style="font-size: 1rem; padding: 1.2rem 2.5rem"
-          >
-            Iniciar projeto <span class="arrow">→</span>
-          </a>
-
-          <div class="contact-links">
-            <a
-              href="https://github.com/Juansantoss07"
-              target="_blank"
-              class="contact-link"
-              >GitHub</a
-            >
-            <a
-              href="https://www.linkedin.com/in/juan-santos-developer/"
-              target="_blank"
-              class="contact-link"
-              >LinkedIn</a
-            >
-            <a
-              href="https://www.instagram.com/ojuandev/"
-              target="_blank"
-              class="contact-link"
-              >Instagram</a
-            >
-            <a
-              href="https://wa.me/+5511945691430"
-              target="_blank"
-              class="contact-link"
-              >WhatsApp</a
-            >
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
           </div>
         </div>
-      </div>
-    </section>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">01</span>
+            <div class="case-tags">
+              <span class="case-tag">Node.js</span>
+              <span class="case-tag">React</span>
+              <span class="case-tag">PostgreSQL</span>
+            </div>
+          </div>
+          <h3 class="case-title">CartFlow</h3>
+          <p class="case-desc">
+            Engine de e-commerce modular construída do zero com Node.js e
+            React. Suporta múltiplos gateways de pagamento, gestão de estoque
+            em tempo real e painel administrativo completo.
+          </p>
+        </div>
+      </a>
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-copy">
-        © 2026 OJuandev — Todos os direitos reservados.
-      </div>
-      <div class="footer-made">Desenvolvido por <span>OJuandev</span></div>
-    </footer>
+      <a href="https://github.com/Juansantoss07" target="_blank" class="case-card reveal"
+        style="transition-delay: 0.1s">
+        <div class="case-image-wrapper case-image-placeholder" style="
+              background: linear-gradient(135deg, #0f0f0f 0%, #161616 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            ">
+          <div class="project-icon-wrap" style="text-align: center">
+            <span style="font-size: 3rem">🤖</span>
+            <div style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 0.65rem;
+                  color: var(--accent);
+                  letter-spacing: 0.15em;
+                  text-transform: uppercase;
+                  margin-top: 0.75rem;
+                ">
+              AI / Automação
+            </div>
+          </div>
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">02</span>
+            <div class="case-tags">
+              <span class="case-tag">TypeScript</span>
+              <span class="case-tag">OpenAI</span>
+              <span class="case-tag">Next.js</span>
+            </div>
+          </div>
+          <h3 class="case-title">SaaS Copilot</h3>
+          <p class="case-desc">
+            Plataforma Micro-SaaS com IA integrada para automação de conteúdo.
+            Geração de textos, análise de sentimentos e sugestões de SEO —
+            tudo em uma interface minimalista.
+          </p>
+        </div>
+      </a>
 
-    <script src="assets/js/main.js"></script>
-  </body>
+      <a href="https://github.com/Juansantoss07" target="_blank" class="case-card reveal"
+        style="transition-delay: 0.2s">
+        <div class="case-image-wrapper case-image-placeholder" style="
+              background: linear-gradient(135deg, #0f0f0f 0%, #161616 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            ">
+          <div class="project-icon-wrap" style="text-align: center">
+            <span style="font-size: 3rem">📊</span>
+            <div style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 0.65rem;
+                  color: var(--accent);
+                  letter-spacing: 0.15em;
+                  text-transform: uppercase;
+                  margin-top: 0.75rem;
+                ">
+              Analytics Dashboard
+            </div>
+          </div>
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">03</span>
+            <div class="case-tags">
+              <span class="case-tag">React</span>
+              <span class="case-tag">D3.js</span>
+              <span class="case-tag">Express</span>
+            </div>
+          </div>
+          <h3 class="case-title">MetricBoard</h3>
+          <p class="case-desc">
+            Dashboard de analytics em tempo real com visualizações interativas
+            via D3.js. Conecta múltiplas fontes de dados via API REST e exibe
+            KPIs de forma elegante e responsiva.
+          </p>
+        </div>
+      </a>
+
+      <a href="https://github.com/OJuanDev/AuthVault-Backend" target="_blank" class="case-card reveal"
+        style="transition-delay: 0.3s">
+        <div class="case-image-wrapper case-image-placeholder" style="
+              background: linear-gradient(135deg, #0f0f0f 0%, #161616 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            ">
+          <div class="case-image-wrapper">
+            <img src="assets/images/authvault.png" alt="AuthVault" />
+            <div class="case-overlay">
+              <div class="case-arrow">↗</div>
+            </div>
+          </div>
+          <div class="case-overlay">
+            <div class="case-arrow">↗</div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="case-meta">
+            <span class="case-num">04</span>
+            <div class="case-tags">
+              <span class="case-tag">Node.js</span>
+              <span class="case-tag">JWT</span>
+              <span class="case-tag">Docker</span>
+            </div>
+          </div>
+          <h3 class="case-title">AuthVault</h3>
+          <p class="case-desc">
+            Microsserviço de autenticação robusto com suporte a OAuth 2.0, JWT
+            de curta duração, refresh tokens seguros e controle de sessões
+            multi-dispositivo. Pronto para produção com Docker.
+          </p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div class="glow-line"></div>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="contact-wrap">
+      <div class="section-tag reveal">Vamos conversar</div>
+
+      <h2 class="contact-big reveal">
+        Vamos<br />
+        construir<br />
+        o <em>futuro</em><br />
+        juntos.
+      </h2>
+
+      <div class="contact-row reveal">
+        <a href="https://wa.me/+5511945691430?text=Oi!%20Quero%20iniciar%20meu%20projeto!" target="_blank"
+          class="btn-primary" style="font-size: 1rem; padding: 1.2rem 2.5rem">
+          Iniciar projeto <span class="arrow">→</span>
+        </a>
+
+        <div class="contact-links">
+          <a href="https://github.com/Juansantoss07" target="_blank" class="contact-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/juan-santos-developer/" target="_blank" class="contact-link">LinkedIn</a>
+          <a href="https://www.instagram.com/ojuandev/" target="_blank" class="contact-link">Instagram</a>
+          <a href="https://wa.me/+5511945691430" target="_blank" class="contact-link">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-copy">
+      © 2026 OJuandev — Todos os direitos reservados.
+    </div>
+    <div class="footer-made">Desenvolvido por <span>OJuandev</span></div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
 </html>
