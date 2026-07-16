@@ -83,3 +83,30 @@ window.addEventListener("scroll", () => {
   document.getElementById("nav").style.background =
     window.scrollY > 50 ? "rgba(8,8,8,0.9)" : "rgba(8,8,8,0.6)";
 });
+
+// Swiper Initialization
+document.addEventListener("DOMContentLoaded", () => {
+  const swiperOptions = {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+    },
+  };
+
+  new Swiper(".cases-swiper", swiperOptions);
+});

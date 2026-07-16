@@ -1117,3 +1117,17 @@ footer {
   margin: 0 -3rem;
   opacity: 0.3;
 }
+
+/* SWIPER OVERRIDES */
+.swiper-pagination-bullet {
+  background: var(--text);
+  opacity: 0.3;
+}
+.swiper-pagination-bullet-active {
+  background: var(--accent) !important;
+  opacity: 1;
+}
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 0px;
+}

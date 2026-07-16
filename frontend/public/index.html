@@ -7,6 +7,7 @@
   <title>Juan Santos — Engenheiro de Software</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400&display=swap"
@@ -307,8 +308,9 @@
       Cases <em>&amp;</em><br />Projetos Reais.
     </h2>
 
-    <div class="cases-grid">
-      <a href="http://mobiletti.com.br" target="_blank" class="case-card reveal">
+    <div class="swiper cases-swiper" style="margin-top: 5rem; padding-bottom: 4rem;">
+      <div class="swiper-wrapper">
+      <a href="http://mobiletti.com.br" target="_blank" class="swiper-slide case-card reveal">
         <div class="case-image-wrapper">
           <img src="assets/images/mobiletti.jpg" alt="Mobiletti - Configurador de Produtos" />
           <div class="case-overlay">
@@ -332,7 +334,7 @@
         </div>
       </a>
 
-      <a href="http://ressalvaproject.com.br" target="_blank" class="case-card reveal" style="transition-delay: 0.1s">
+      <a href="http://ressalvaproject.com.br" target="_blank" class="swiper-slide case-card reveal" style="transition-delay: 0.1s">
         <div class="case-image-wrapper">
           <img src="assets/images/ressalva.jpg" alt="Ressalva Project - E-commerce" />
           <div class="case-overlay">
@@ -355,7 +357,7 @@
         </div>
       </a>
 
-      <a href="http://praia.shop/" target="_blank" class="case-card reveal" style="transition-delay: 0.2s">
+      <a href="http://praia.shop/" target="_blank" class="swiper-slide case-card reveal" style="transition-delay: 0.2s">
         <div class="case-image-wrapper">
           <img src="assets/images/praia.jpg" alt="Praia - Loja Virtual" />
           <div class="case-overlay">
@@ -378,7 +380,7 @@
         </div>
       </a>
 
-      <a href="https://www.ecle.studio" target="_blank" class="case-card reveal" style="transition-delay: 0.3s">
+      <a href="https://www.ecle.studio" target="_blank" class="swiper-slide case-card reveal" style="transition-delay: 0.3s">
         <div class="case-image-wrapper">
           <img src="assets/images/ecle.jpg" alt="Eclé" />
           <div class="case-overlay">
@@ -403,7 +405,7 @@
         </div>
       </a>
 
-      <a href="https://mundopura.com" target="_blank" class="case-card reveal" style="transition-delay: 0.3s">
+      <a href="https://mundopura.com" target="_blank" class="swiper-slide case-card reveal" style="transition-delay: 0.3s">
         <div class="case-image-wrapper">
           <img src="assets/images/mundopura.webp" alt="Mundo Pura - E-commerce" />
           <div class="case-overlay">
@@ -426,7 +428,7 @@
         </div>
       </a>
 
-      <a href="https://studio-oko.vercel.app/" target="_blank" class="case-card reveal" style="transition-delay: 0.3s">
+      <a href="https://studio-oko.vercel.app/" target="_blank" class="swiper-slide case-card reveal" style="transition-delay: 0.3s">
         <div class="case-image-wrapper">
           <img src="assets/images/3.png" alt="Studio OKO" />
           <div class="case-overlay">
@@ -452,7 +454,7 @@
         </div>
       </a>
 
-      <a href="https://www.cubibrasil.com.br" target="_blank" class="case-card reveal" style="transition-delay: 0.3s">
+      <a href="https://www.cubibrasil.com.br" target="_blank" class="swiper-slide case-card reveal" style="transition-delay: 0.3s">
         <div class="case-image-wrapper">
           <img src="assets/images/cubi.jpg" alt="Studio OKO" />
           <div class="case-overlay">
@@ -480,7 +482,7 @@
       <!-- <a
           href="https://www.drsergiofaria.com.br/"
           target="_blank"
-          class="case-card reveal"
+          class="swiper-slide case-card reveal"
           style="transition-delay: 0.3s"
         >
           <div class="case-image-wrapper">
@@ -505,6 +507,8 @@
             </p>
           </div>
         </a> -->
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
 
@@ -526,8 +530,9 @@
       </a>
     </div>
 
-    <div class="cases-grid">
-      <a href="https://github.com/Juansantoss07" target="_blank" class="case-card reveal">
+    <div class="swiper cases-swiper" style="margin-top: 5rem; padding-bottom: 4rem;">
+      <div class="swiper-wrapper">
+      <a href="https://github.com/Juansantoss07" target="_blank" class="swiper-slide case-card reveal">
         <div class="case-image-wrapper case-image-placeholder" style="
               background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
               display: flex;
@@ -569,7 +574,7 @@
         </div>
       </a>
 
-      <a href="https://github.com/Juansantoss07" target="_blank" class="case-card reveal"
+      <a href="https://github.com/Juansantoss07" target="_blank" class="swiper-slide case-card reveal"
         style="transition-delay: 0.1s">
         <div class="case-image-wrapper case-image-placeholder" style="
               background: linear-gradient(135deg, #0f0f0f 0%, #161616 100%);
@@ -612,7 +617,7 @@
         </div>
       </a>
 
-      <a href="https://github.com/Juansantoss07" target="_blank" class="case-card reveal"
+      <a href="https://github.com/Juansantoss07" target="_blank" class="swiper-slide case-card reveal"
         style="transition-delay: 0.2s">
         <div class="case-image-wrapper case-image-placeholder" style="
               background: linear-gradient(135deg, #0f0f0f 0%, #161616 100%);
@@ -655,7 +660,7 @@
         </div>
       </a>
 
-      <a href="https://github.com/OJuanDev/AuthVault-Backend" target="_blank" class="case-card reveal"
+      <a href="https://github.com/OJuanDev/AuthVault-Backend" target="_blank" class="swiper-slide case-card reveal"
         style="transition-delay: 0.3s">
         <div class="case-image-wrapper case-image-placeholder" style="
               background: linear-gradient(135deg, #0f0f0f 0%, #161616 100%);
@@ -690,6 +695,8 @@
           </p>
         </div>
       </a>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
 
@@ -731,6 +738,7 @@
     <div class="footer-made">Desenvolvido por <span>OJuandev</span></div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 
