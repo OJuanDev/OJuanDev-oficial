@@ -767,7 +767,20 @@ section {
   line-height: 1.7;
   margin-bottom: 2rem;
   flex-grow: 1;
+  height: 80px;
+  overflow-y: auto;
 }
+
+.case-desc::-webkit-scrollbar {
+  width: 2px;
+}
+
+.case-desc::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 0;
+  border: 2px solid var(--border);
+}
+
 .case-tags {
   display: flex;
   flex-wrap: wrap;
@@ -1120,8 +1133,8 @@ footer {
 
 /* SWIPER OVERRIDES */
 .swiper-pagination-bullet {
-  background: var(--text);
-  opacity: 0.3;
+  background: var(--accent) !important;
+  opacity: .3;
 }
 .swiper-pagination-bullet-active {
   background: var(--accent) !important;
