@@ -88,15 +88,16 @@ window.addEventListener("scroll", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const swiperOptions = {
     slidesPerView: 1,
-    spaceBetween: 5,
+    spaceBetween: 20,
     loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
+
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
+    },
+    navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
     },
     breakpoints: {
       768: {
