@@ -967,6 +967,217 @@ section {
   }
 }
 
+/* MOBILE - Stack Cards Layout */
+@media (max-width: 767px) {
+  #trajetoria {
+    padding-bottom: 2rem;
+  }
+
+  .timeline-scroll-area {
+    margin: 2rem -1.2rem 0;
+    overflow: visible;
+  }
+
+  .timeline-scroll-area::before,
+  .timeline-scroll-area::after {
+    display: none;
+  }
+
+  .timeline-scroll-hint {
+    display: none;
+  }
+
+  .timeline-container {
+    padding: 0 1.2rem;
+    overflow-x: visible;
+    overflow-y: visible;
+    cursor: default;
+    scroll-snap-type: none;
+  }
+
+  .timeline-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .timeline-container.is-dragging {
+    cursor: default;
+  }
+
+  .timeline-track {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    min-width: unset;
+    min-height: unset;
+    padding: 1rem 0;
+    gap: 1.5rem;
+  }
+
+  .timeline-line {
+    display: none;
+  }
+
+  .timeline-item {
+    flex: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    scroll-snap-align: unset;
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: stackCardIn 0.6s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+  }
+
+  .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+  .timeline-item:nth-child(2) { animation-delay: 0.15s; }
+  .timeline-item:nth-child(3) { animation-delay: 0.2s; }
+  .timeline-item:nth-child(4) { animation-delay: 0.25s; }
+  .timeline-item:nth-child(5) { animation-delay: 0.3s; }
+  .timeline-item:nth-child(6) { animation-delay: 0.35s; }
+  .timeline-item:nth-child(7) { animation-delay: 0.4s; }
+  .timeline-item:nth-child(8) { animation-delay: 0.45s; }
+
+  @keyframes stackCardIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .timeline-item:not(:last-child) {
+    margin-bottom: -0.5rem;
+  }
+
+  /* Efeito de pilha: cards se sobrepõem levemente */
+  .timeline-item:not(:last-child) .timeline-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-item:not(:last-child) .timeline-content::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 10px;
+    right: 10px;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.15);
+    filter: blur(8px);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .timeline-item:not(:last-child):hover .timeline-content::after {
+    opacity: 1;
+  }
+
+  /* Ajustes de grid para mobile */
+  .timeline-content {
+    grid-row: unset !important;
+    align-self: unset !important;
+    margin: 0 !important;
+    padding: 1.25rem;
+    border-radius: 12px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    transition: all 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+    position: relative;
+  }
+
+  /* Remove as setas dos cards */
+  .timeline-content::before {
+    display: none !important;
+  }
+
+  .timeline-dot {
+    display: none;
+  }
+
+  /* Efeito hover mobile */
+  .timeline-item:hover .timeline-content {
+    transform: translateY(-2px) scale(1.01);
+    border-color: rgba(200, 240, 80, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Badge de ano mais destacado na pilha */
+  .timeline-year {
+    font-size: 0.95rem;
+  }
+
+  .timeline-header {
+    gap: 0.5rem;
+  }
+
+  .timeline-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .timeline-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Card atual destacado na pilha */
+  .timeline-item.current-milestone .timeline-content {
+    border-color: var(--accent);
+    border-width: 2px;
+    background: rgba(200, 240, 80, 0.05);
+  }
+
+  /* Efeito de empilhamento ao scroll (parallax sutil) */
+  .timeline-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Quando o card entra na viewport, ele "sobe" levemente */
+  .timeline-item.is-visible .timeline-content {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+  .timeline-item {
+    gap: 0;
+  }
+
+  .timeline-content {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .timeline-year {
+    font-size: 0.85rem;
+  }
+
+  .timeline-title {
+    font-size: 0.95rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .timeline-badge {
+    font-size: 0.55rem;
+    padding: 0.15rem 0.4rem;
+  }
+}
+
 /* DIFERENCIAL */
 #diferencial {
   background: var(--bg);
