@@ -9,31 +9,123 @@ let mx = 0,
 document.addEventListener("mousemove", (e) => {
   mx = e.clientX;
   my = e.clientY;
-  cursor.style.left = mx + "px";
-  cursor.style.top = my + "px";
+  if (cursor) {
+    cursor.style.left = mx + "px";
+    cursor.style.top = my + "px";
+  }
 });
 
 function animateRing() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  ring.style.left = rx + "px";
-  ring.style.top = ry + "px";
+  if (ring) {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + "px";
+    ring.style.top = ry + "px";
+  }
   requestAnimationFrame(animateRing);
 }
 animateRing();
 
-document
-  .querySelectorAll("a, button, .diff-card, .skill-pill")
-  .forEach((el) => {
+function bindCursorHover(elements) {
+  elements.forEach((el) => {
     el.addEventListener("mouseenter", () => {
-      cursor.classList.add("hover");
-      ring.classList.add("hover");
+      if (cursor && ring) {
+        cursor.classList.add("hover");
+        ring.classList.add("hover");
+      }
     });
     el.addEventListener("mouseleave", () => {
-      cursor.classList.remove("hover");
-      ring.classList.remove("hover");
+      if (cursor && ring) {
+        cursor.classList.remove("hover");
+        ring.classList.remove("hover");
+      }
     });
   });
+}
+
+bindCursorHover(document.querySelectorAll("a, button, .diff-card, .skill-pill, .case-card, .timeline-content, .timeline-dot, .testimonial-card"));
+
+// Timeline drag scroll
+(function initTimelineDragScroll() {
+  const scrollArea = document.getElementById("timelineScrollArea");
+  const container = document.getElementById("timelineContainer");
+  const hint = document.getElementById("timelineScrollHint");
+  if (!scrollArea || !container) return;
+
+  let isDragging = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let hasDragged = false;
+
+  function markInteracted() {
+    scrollArea.classList.add("is-interacted");
+  }
+
+  function updateScrollEdges() {
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    if (maxScroll <= 4) {
+      scrollArea.classList.add("at-start", "at-end");
+      if (hint) hint.style.display = "none";
+      return;
+    }
+    if (hint) hint.style.display = "";
+    scrollArea.classList.toggle("at-start", container.scrollLeft <= 4);
+    scrollArea.classList.toggle("at-end", container.scrollLeft >= maxScroll - 4);
+  }
+
+  function startDrag(clientX) {
+    isDragging = true;
+    hasDragged = false;
+    startX = clientX;
+    scrollLeft = container.scrollLeft;
+    container.classList.add("is-dragging");
+    document.body.classList.add("timeline-grabbing");
+  }
+
+  function endDrag() {
+    if (!isDragging) return;
+    isDragging = false;
+    container.classList.remove("is-dragging");
+    document.body.classList.remove("timeline-grabbing");
+    window.setTimeout(() => {
+      hasDragged = false;
+    }, 0);
+  }
+
+  container.addEventListener("mousedown", (e) => {
+    if (e.button !== 0) return;
+    startDrag(e.clientX);
+  });
+
+  window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const delta = e.clientX - startX;
+    if (Math.abs(delta) > 4) {
+      hasDragged = true;
+      markInteracted();
+    }
+    container.scrollLeft = scrollLeft - delta;
+    updateScrollEdges();
+  });
+
+  window.addEventListener("mouseup", endDrag);
+
+  container.addEventListener("scroll", () => {
+    markInteracted();
+    updateScrollEdges();
+  }, { passive: true });
+
+  container.addEventListener("click", (e) => {
+    if (hasDragged) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+
+  window.addEventListener("resize", updateScrollEdges);
+  updateScrollEdges();
+})();
 
 // Scroll Reveal
 const reveals = document.querySelectorAll(".reveal");
@@ -67,21 +159,28 @@ const heroObs = new IntersectionObserver(
   (entries) => {
     if (entries[0].isIntersecting) {
       setTimeout(() => {
-        animateCounter(document.getElementById("counter-projects"), 100, "+");
-        animateCounter(document.getElementById("counter-years"), 5, "+");
-        animateCounter(document.getElementById("counter-clients"), 50, "+");
+        const pEl = document.getElementById("counter-projects");
+        const yEl = document.getElementById("counter-years");
+        const cEl = document.getElementById("counter-clients");
+        if (pEl) animateCounter(pEl, 100, "+");
+        if (yEl) animateCounter(yEl, 5, "+");
+        if (cEl) animateCounter(cEl, 50, "+");
       }, 900);
       heroObs.disconnect();
     }
   },
   { threshold: 0.3 },
 );
-heroObs.observe(document.getElementById("hero"));
+const heroSection = document.getElementById("hero");
+if (heroSection) heroObs.observe(heroSection);
 
 // Nav scroll effect
 window.addEventListener("scroll", () => {
-  document.getElementById("nav").style.background =
-    window.scrollY > 50 ? "rgba(8,8,8,0.9)" : "rgba(8,8,8,0.6)";
+  const nav = document.getElementById("nav");
+  if (nav) {
+    nav.style.background =
+      window.scrollY > 50 ? "rgba(8,8,8,0.9)" : "rgba(8,8,8,0.6)";
+  }
 });
 
 // Mobile Navigation Toggle
@@ -139,8 +238,8 @@ document.addEventListener("DOMContentLoaded", () => {
       clickable: true,
     },
     navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
     breakpoints: {
       768: {
@@ -154,3 +253,406 @@ document.addEventListener("DOMContentLoaded", () => {
 
   new Swiper(".cases-swiper", swiperOptions);
 });
+
+// ==========================================
+// CASE STUDY MODAL DATA & CONTROLLER
+// ==========================================
+const casesData = {
+  mobiletti: {
+    title: "Mobiletti",
+    category: "// ESTUDO DE CASO · E-COMMERCE & CONFIGURADOR",
+    tags: ["React", "Shopify API", "Vanilla JS", "Liquid"],
+    image: "assets/images/mobiletti.jpg",
+    liveUrl: "http://mobiletti.com.br",
+    liveUrlLabel: "Visitar Loja Ao Vivo",
+    metrics: [
+      { label: "Taxa de Conversão", value: "+35%" },
+      { label: "Ticket Médio", value: "+42%" },
+      { label: "Tempo de Carga", value: "1.1s" },
+    ],
+    challenge:
+      "A Mobiletti é uma marca de estampas e tecidos sob medida e alto padrão. O maior gargalo do e-commerce era a impossibilidade de os clientes personalizarem cores, estampas, tecidos e dimensões em tempo real. Isso gerava atrito constante, dependência de atendimento via suporte e uma alta taxa de abandono de carrinho.",
+    solution:
+      "Arquitetura e desenvolvimento de um configurador de produtos interativo em React integrado nativamente à API da Shopify. Construí um sistema dinâmico de composição visual com renderização por camadas em tempo real. O customizer recalcula o preço instantaneamente com base nas especificações selecionadas e injeta os atributos customizados diretamente nas propriedades do item no carrinho da Shopify.",
+    results:
+      "Aumento expressivo na taxa de conversão direta do e-commerce e no ticket médio devido à facilidade de personalização. Eliminou-se o gargalo no suporte e concedeu-se autonomia total para a equipe da loja gerenciar regras e acabamentos pelo painel da Shopify.",
+  },
+  ressalva: {
+    title: "Ressalva Project",
+    category: "// ESTUDO DE CASO · MODA PREMIUM",
+    tags: ["Shopify", "Liquid Custom", "Performance CSS", "Vanilla JS"],
+    image: "assets/images/ressalva.jpg",
+    liveUrl: "http://ressalvaproject.com.br",
+    liveUrlLabel: "Visitar Loja Ao Vivo",
+    metrics: [
+      { label: "PageSpeed Score", value: "98/100" },
+      { label: "Taxa de Retenção", value: "+28%" },
+      { label: "Navegação Mobile", value: "0.8s" },
+    ],
+    challenge:
+      "A Ressalva Project necessitava de um tema totalmente sob medida para representar sua estética minimalista. Os temas genéricos disponíveis na plataforma apresentavam lentidão no carregamento, código poluído e engessamento no design em momentos de pico de acessos e lançamentos de coleções (drops).",
+    solution:
+      "Desenvolvimento de tema exclusivo em Liquid, sem o uso de bibliotecas pesadas de terceiros. Apliquei Vanilla JS assíncrono para interações de interface, minicart em gaveta com atualização dinâmica via Ajax API da Shopify e carregamento progressivo otimizado de imagens em alta resolução. Diversas funcionalidades adicionais foram implementadas como relação automática de produtos da mesma cor, complete o look, countdown para lançamentos, entre outras.",
+    results:
+      "Performance, estética e funcionalidade alinhadas para maximizar a retenção e a interatividade dos clientes.",
+  },
+  praia: {
+    title: "Praia",
+    category: "// ESTUDO DE CASO · TEMA CUSTOMIZADO NUVEMSHOP",
+    tags: ["NuvemShop", "JavaScript", "CSS3 Moderno", "UX UI"],
+    image: "assets/images/praia.jpg",
+    liveUrl: "http://praia.shop/",
+    liveUrlLabel: "Visitar Loja Ao Vivo",
+    metrics: [
+      { label: "Conversão Mobile", value: "+40%" },
+      { label: "Permanência", value: "+65%" },
+      { label: "Gestão Autônoma", value: "100%" },
+    ],
+    challenge:
+      "A plataforma NuvemShop da marca possuía um layout padrão e rígido que não capturava a identidade visual praia/lifestyle. A experiência mobile era truncada, com filtros de busca lentos e exibição de fotos que não valorizavam os produtos.",
+    solution:
+      "Criação de um tema customizado, restruturado e otimizado para melhorar a performance e a usabilidade do site e com mais funcionalidades como tabela de medidas e player do Spotify integrado com playlist da marca.",
+    results:
+      "Aumento na taxa de conversão e permanência no site, com a equipe da marca ganhando 100% de autonomia para modificar banners e vitrines sem dependência técnica.",
+  },
+  ecle: {
+    title: "Eclé",
+    category: "// ESTUDO DE CASO · E-COMMERCE TRAY",
+    tags: ["Tray Commerce", "HTML5", "CSS3", "JavaScript", "Custom Modules"],
+    image: "assets/images/ecle.jpg",
+    liveUrl: "https://www.ecle.studio",
+    liveUrlLabel: "Visitar Loja Ao Vivo",
+    metrics: [
+      { label: "Abandono Carrinho", value: "-25%" },
+      { label: "Vendas Diretas", value: "+30%" },
+      { label: "Tempo no Checkout", value: "-40%" },
+    ],
+    challenge:
+      "A marca Eclé buscava uma experiência refinada de e-commerce dentro da plataforma Tray, exigindo integração direta com o gateway de pagamento da REDE. Além disso, a loja estava com problemas de performance e usabilidade.",
+    solution:
+      "Desenvolvimento de tema customizado, cadastro de produtos organizados e categorizados, integração com o gateway de pagamento da REDE e otimização de performance e usabilidade do site.",
+    results:
+      "Redução na taxa de abandono de carrinho no checkout e aumento na taxa de conversão."
+  },
+  mundopura: {
+    title: "Mundo Pura",
+    category: "// ESTUDO DE CASO · SHOPIFY PRODUCTS & SEO",
+    tags: ["Shopify", "Liquid", "SEO Avançado", "JS Search"],
+    image: "assets/images/mundopura.webp",
+    liveUrl: "https://mundopura.com",
+    liveUrlLabel: "Visitar Loja Ao Vivo",
+    metrics: [
+      { label: "Tráfego Orgânico", value: "+55%" },
+      { label: "Taxa de Conversão", value: "+32%" },
+      { label: "Velocidade Média", value: "1.2s" },
+    ],
+    challenge:
+      "Com um catálogo extenso de produtos naturais e bem-estar, a loja antiga sofria com problemas de busca interna, arquitetura de informação confusa e baixa visibilidade orgânica nos motores de busca.",
+    solution:
+      "Reformulação completa da arquitetura do tema em Liquid com foco em SEO (Schema.org / JSON-LD dados estruturados), busca preditiva em JS com destaque de palavras-chave em tempo real e layout totalmente redesenhado com design responsivo e moderno.",
+    results:
+      "Aumento no tráfego orgânico via Google e aumento na taxa de conversão total.",
+  },
+  "studio-oko": {
+    title: "Stúdio OKO",
+    category: "// ESTUDO DE CASO · INSTITUCIONAL B2B",
+    tags: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "Vercel"],
+    image: "assets/images/3.png",
+    liveUrl: "https://studio-oko.vercel.app/",
+    liveUrlLabel: "Visitar Site Ao Vivo",
+    metrics: [
+      { label: "Leads Qualificados", value: "+80%" },
+      { label: "Google Lighthouse", value: "99/100" },
+      { label: "CTR nos CTAs", value: "24%" },
+    ],
+    challenge:
+      "Criar uma presença digital de altíssimo nível para o Stúdio OKO (divisão especialista em temas Shopify Premium do grupo OJuanDev) para atrair grandes marcas e-commerce exigentes por design inovador.",
+    solution:
+      "Desenvolvimento de landing page de alta performance com Tailwind CSS e JavaScript nativo para animações micro-interactive de scroll e interatividade. Deploy contínuo na Vercel com CDN global e compressão estática extrema.",
+    results:
+      "Nota máxima de 99/100 no Google Lighthouse e aumento de +80% no volume de leads qualificados que entram em contato diretamente para contratação de projetos e-commerce de alto ticket.",
+  },
+  cubi: {
+    title: "CUBI",
+    category: "// ESTUDO DE CASO · INTEGRAÇÃO REACT & SHOPIFY",
+    tags: ["React", "Shopify API", "Lovable Frontend", "JavaScript"],
+    image: "assets/images/cubi.jpg",
+    liveUrl: "https://www.cubibrasil.com.br",
+    liveUrlLabel: "Visitar Loja Ao Vivo",
+    metrics: [
+      { label: "Tempo de Dev", value: "-60%" },
+      { label: "Integração API", value: "100%" },
+      { label: "Conversão Global", value: "+38%" },
+    ],
+    challenge:
+      "A marca possuía o protótipo e front-end visual construído no Lovable/React, mas necessitava integrar toda a lógica de checkout, variações de produto, estoque e gateway de pagamento à infraestrutura comercial da Shopify.",
+    solution:
+      "Realizei a engenharia de integração completa entre o código React fornecido e a API de storefront da Shopify. Mapeei estados de produto, sincronizei estoque em tempo real e adaptei a jornada de compra para o checkout nativo.",
+    results:
+      "Redução de 60% no tempo total de entrega do projeto e conexão impecável entre um design disruptivo e a robustez e estabilidade da infraestrutura da Shopify.",
+  },
+  cartflow: {
+    title: "CartFlow",
+    category: "// PROJETO PESSOAL · ENGINE E-COMMERCE HEADLESS",
+    tags: ["Node.js", "React", "Prisma ORM", "PostgreSQL"],
+    image: "assets/images/cartflow.png",
+    liveUrl: "https://github.com/OJuanDev/Cartflow",
+    liveUrlLabel: "Ver no GitHub",
+    metrics: [
+      { label: "Arquitetura", value: "Modular" },
+      { label: "API Latência", value: "< 45ms" },
+      { label: "Pay Gateways", value: "Multi-pay" },
+    ],
+    challenge:
+      "Plataformas tradicionais de e-commerce impõem limites à customização e taxas elevadas. O desafio foi criar uma engine de e-commerce open-source modular, altamente segura e pronta para escalar com microsserviços.",
+    solution:
+      "Desenvolvimento de API REST em Node.js com TypeScript, ORM Prisma e PostgreSQL para a retaguarda, acoplada a um dashboard administrativo e loja em React. Implementei gestão de carrinho headless, cupons e múltiplos gateways.",
+    results:
+      "Projeto open-source robusto com tempo de resposta de API inferior a 45ms, arquitetura desacoplada e flexibilidade total para customização de front-end por qualquer desenvolvedor.",
+  },
+  "saas-copilot": {
+    title: "SaaS Copilot",
+    category: "// PROJETO PESSOAL · MICRO-SAAS DE IA",
+    tags: ["TypeScript", "OpenAI API", "Next.js", "Tailwind"],
+    image: "",
+    icon: "🤖",
+    iconLabel: "AI / Automação",
+    liveUrl: "https://github.com/Juansantoss07",
+    liveUrlLabel: "Ver no GitHub",
+    metrics: [
+      { label: "Tempo de Resposta", value: "< 1.5s" },
+      { label: "Precisão SEO", value: "94%" },
+      { label: "Redução de Tempo", value: "-80%" },
+    ],
+    challenge:
+      "Reduzir o tempo gasto por equipes de marketing e e-commerce na criação manual de descrições de produtos, posts e análises de SEO sem depender de ferramentas complexas.",
+    solution:
+      "Desenvolvimento de plataforma Micro-SaaS em Next.js integrada aos modelos GPT-4 da OpenAI via Server-Sent Events (streaming). Criei engenharia de prompts dinâmicos e exportação de conteúdo com um clique.",
+    results:
+      "Economia de mais de 80% do tempo gasto na geração de copies comerciais e descrições para e-commerce com alta qualidade de SEO.",
+  },
+  metricboard: {
+    title: "MetricBoard",
+    category: "// PROJETO PESSOAL · ANALYTICS IN REAL-TIME",
+    tags: ["React", "D3.js", "Express", "WebSockets"],
+    image: "",
+    icon: "📊",
+    iconLabel: "Analytics Dashboard",
+    liveUrl: "https://github.com/Juansantoss07",
+    liveUrlLabel: "Ver no GitHub",
+    metrics: [
+      { label: "Frequência", value: "Real-time" },
+      { label: "Capacidade", value: "10k req/s" },
+      { label: "Latência UI", value: "15ms" },
+    ],
+    challenge:
+      "Processar e exibir volumes expressivos de eventos de dados em tempo real em um dashboard web sem gerar quedas de frame rate ou travamento da página.",
+    solution:
+      "Arquitetura com WebSockets (Socket.io) integrando um servidor Express a um dashboard React com gráficos SVG dinâmicos desenhados via D3.js com renderização otimizada por diff.",
+    results:
+      "Capacidade de processar mais de 10.000 requisições por segundo mantendo resposta da UI em 15ms sem engasgos no navegador.",
+  },
+  authvault: {
+    title: "AuthVault",
+    category: "// PROJETO PESSOAL · MICROSSERVIÇO DE SEGURANÇA",
+    tags: ["Node.js", "JWT RS256", "Docker", "Redis", "OAuth 2.0"],
+    image: "assets/images/authvault.png",
+    liveUrl: "https://github.com/OJuanDev/AuthVault-Backend",
+    liveUrlLabel: "Ver no GitHub",
+    metrics: [
+      { label: "Protocolo", value: "OAuth 2.0" },
+      { label: "Token Rotation", value: "Zero Leak" },
+      { label: "Infraestrutura", value: "Docker" },
+    ],
+    challenge:
+      "Prover uma solução de autenticação desacoplada, segura e pronta para produção que suporte rotação contínua de refresh tokens e controle de sessões simultâneas.",
+    solution:
+      "Microsserviço Node.js/TypeScript com assinatura assimétrica JWT (RS256), armazenamento de tokens revogados no Redis, suporte a OAuth 2.0 (Google/GitHub) e conteinerização via Docker Compose.",
+    results:
+      "API de autenticação de classe corporativa, testada contra vulnerabilidades OWASP e com deploy instantâneo em ambientes conteinerizados.",
+  },
+};
+
+const modal = document.getElementById("caseModal");
+const modalClose = document.getElementById("caseModalClose");
+const modalCategory = document.getElementById("modalCategory");
+const modalTitle = document.getElementById("modalTitle");
+const modalTags = document.getElementById("modalTags");
+const modalImgWrap = document.getElementById("modalImgWrap");
+const modalMetrics = document.getElementById("modalMetrics");
+const modalChallenge = document.getElementById("modalChallenge");
+const modalSolution = document.getElementById("modalSolution");
+const modalResults = document.getElementById("modalResults");
+const modalLiveUrl = document.getElementById("modalLiveUrl");
+const modalLiveUrlText = document.getElementById("modalLiveUrlText");
+
+function openCaseModal(caseId) {
+  const data = casesData[caseId];
+  if (!data || !modal) return;
+
+  if (modalCategory) modalCategory.textContent = data.category || "// CASE STUDY";
+  if (modalTitle) modalTitle.textContent = data.title || "Projeto";
+
+  // Populate tags
+  if (modalTags) {
+    modalTags.innerHTML = "";
+    if (data.tags && data.tags.length) {
+      data.tags.forEach((tag) => {
+        const tagSpan = document.createElement("span");
+        tagSpan.className = "case-tag";
+        tagSpan.textContent = tag;
+        modalTags.appendChild(tagSpan);
+      });
+    }
+  }
+
+  // Populate image or icon
+  if (modalImgWrap) {
+    if (data.image) {
+      modalImgWrap.innerHTML = `<img src="${data.image}" alt="${data.title}" id="modalImg" />`;
+    } else if (data.icon) {
+      modalImgWrap.innerHTML = `
+        <div class="modal-icon-placeholder">
+          <span style="font-size: 4rem;">${data.icon}</span>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 1rem;">
+            ${data.iconLabel || ""}
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // Populate metrics
+  if (modalMetrics) {
+    modalMetrics.innerHTML = "";
+    if (data.metrics && data.metrics.length) {
+      data.metrics.forEach((m) => {
+        const metricCard = document.createElement("div");
+        metricCard.className = "modal-metric-badge";
+        metricCard.innerHTML = `
+          <div class="modal-metric-value">${m.value}</div>
+          <div class="modal-metric-label">${m.label}</div>
+        `;
+        modalMetrics.appendChild(metricCard);
+      });
+    }
+  }
+
+  // Populate blocks
+  if (modalChallenge) modalChallenge.textContent = data.challenge || "";
+  if (modalSolution) modalSolution.textContent = data.solution || "";
+  if (modalResults) modalResults.textContent = data.results || "";
+
+  // Populate action link
+  if (modalLiveUrl) modalLiveUrl.href = data.liveUrl || "#";
+  if (modalLiveUrlText) modalLiveUrlText.textContent = data.liveUrlLabel || "Visitar projeto ao vivo";
+
+  // Display modal
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+
+  // Rebind custom cursor to new elements inside modal
+  bindCursorHover(modal.querySelectorAll("a, button"));
+}
+
+function closeCaseModal() {
+  if (!modal) return;
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden", "true");
+  if (!navMenu || !navMenu.classList.contains("active")) {
+    document.body.style.overflow = "";
+  }
+}
+
+// Event Listeners for Case Cards
+document.querySelectorAll(".case-card").forEach((card) => {
+  card.addEventListener("click", (e) => {
+    const caseId = card.getAttribute("data-case-id");
+    if (caseId && casesData[caseId]) {
+      e.preventDefault();
+      openCaseModal(caseId);
+    }
+  });
+});
+
+if (modalClose) {
+  modalClose.addEventListener("click", closeCaseModal);
+}
+
+if (modal) {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeCaseModal();
+    }
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal && modal.classList.contains("active")) {
+    closeCaseModal();
+  }
+});
+
+
+
+
+// ==========================================
+// LOADING SCREEN
+// ==========================================
+(function initLoadingScreen() {
+  const loadingScreen = document.getElementById("loadingScreen");
+  const loadingPercent = document.getElementById("loadingPercent");
+  const loadingBarFill = document.querySelector(".loading-bar-fill");
+
+  if (!loadingScreen) return;
+
+  let progress = 0;
+  const duration = 1800; // tempo total em ms
+  const startTime = performance.now();
+
+  function updateLoading() {
+    const elapsed = performance.now() - startTime;
+    progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+    const percent = Math.floor(eased * 100);
+
+    if (loadingPercent) {
+      loadingPercent.textContent = percent;
+    }
+    if (loadingBarFill) {
+      loadingBarFill.style.width = percent + "%";
+    }
+
+    if (progress < 1) {
+      requestAnimationFrame(updateLoading);
+    } else {
+      // Garante 100% no final
+      if (loadingPercent) loadingPercent.textContent = "100";
+      if (loadingBarFill) loadingBarFill.style.width = "100%";
+
+      // Pequeno delay para mostrar o 100% antes de sumir
+      setTimeout(() => {
+        loadingScreen.classList.add("fade-out");
+        document.body.style.overflow = "";
+        // Remove do DOM após a transição
+        setTimeout(() => {
+          loadingScreen.style.display = "none";
+        }, 800);
+      }, 300);
+    }
+  }
+
+  // Inicia a animação
+  requestAnimationFrame(updateLoading);
+
+  // Fallback: se algo travar, força o fim após 4 segundos
+  setTimeout(() => {
+    if (!loadingScreen.classList.contains("fade-out")) {
+      loadingScreen.classList.add("fade-out");
+      setTimeout(() => {
+        loadingScreen.style.display = "none";
+      }, 800);
+    }
+  }, 4000);
+})();
