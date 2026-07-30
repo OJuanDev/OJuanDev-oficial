@@ -84,6 +84,49 @@ window.addEventListener("scroll", () => {
     window.scrollY > 50 ? "rgba(8,8,8,0.9)" : "rgba(8,8,8,0.6)";
 });
 
+// Mobile Navigation Toggle
+const navHamburger = document.getElementById("navHamburger");
+const navMenu = document.getElementById("navMenu");
+
+if (navHamburger && navMenu) {
+  function toggleMenu() {
+    const isOpen = navMenu.classList.contains("active");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  function openMenu() {
+    navHamburger.classList.add("active");
+    navMenu.classList.add("active");
+    navHamburger.setAttribute("aria-expanded", "true");
+    navHamburger.setAttribute("aria-label", "Fechar menu");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    navHamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+    navHamburger.setAttribute("aria-expanded", "false");
+    navHamburger.setAttribute("aria-label", "Abrir menu");
+    document.body.style.overflow = "";
+  }
+
+  navHamburger.addEventListener("click", toggleMenu);
+
+  navMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768 && navMenu.classList.contains("active")) {
+      closeMenu();
+    }
+  });
+}
+
 // Swiper Initialization
 document.addEventListener("DOMContentLoaded", () => {
   const swiperOptions = {
