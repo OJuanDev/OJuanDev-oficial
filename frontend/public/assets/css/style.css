@@ -10,6 +10,11 @@
   --accent: #c8f050;
   --accent2: #50f0c8;
   --accent3: #f05090;
+  --html-icon: #e34c26;
+  --css-icon: #264de4;
+  --js-icon: #f7df1e;
+  --react-icon: #61dafb;
+  --next-icon: #ffffff;
 }
 *,
 *::before,
@@ -1185,13 +1190,62 @@ section {
 }
 
 .conteudo-icon {
-  font-size: 4rem;
-  opacity: 0.8;
-  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.35s ease;
+}
+
+.html-css-icon-wrap svg,
+.js-icon-wrap svg,
+.react-icon-wrap svg,
+.next-icon-wrap svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.html-badge rect,
+.css-badge rect,
+.js-badge rect,
+.react-badge rect,
+.next-badge rect {
+  transition:
+    stroke-opacity 0.3s ease,
+    fill-opacity 0.3s ease;
 }
 
 .conteudo-card:hover .conteudo-icon {
-  transform: scale(1.1) rotate(-5deg);
+  transform: translateY(-3px) scale(1.06);
+  filter: drop-shadow(0 8px 25px rgba(200, 240, 80, 0.25));
+}
+
+.conteudo-card:hover .html-badge rect {
+  stroke-opacity: 0.8;
+  fill-opacity: 0.25;
+}
+
+.conteudo-card:hover .css-badge rect {
+  stroke-opacity: 0.8;
+  fill-opacity: 0.25;
+}
+
+.conteudo-card:hover .js-badge rect {
+  stroke-opacity: 0.8;
+  fill-opacity: 0.25;
+}
+
+.conteudo-card:hover .react-badge rect {
+  stroke-opacity: 0.8;
+  fill-opacity: 0.25;
+}
+
+.conteudo-card:hover .next-badge rect {
+  stroke-opacity: 0.8;
+  fill-opacity: 0.25;
 }
 
 .conteudo-card-content {
@@ -1342,12 +1396,34 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 .footer-copy {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.72rem;
   color: var(--muted);
   letter-spacing: 0.08em;
+}
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+.footer-legal-btn {
+  background: transparent;
+  border: none;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+}
+.footer-legal-btn:hover {
+  color: var(--accent);
 }
 .footer-made {
   font-family: "JetBrains Mono", monospace;
@@ -1357,6 +1433,90 @@ footer {
 }
 .footer-made span {
   color: var(--accent);
+}
+
+/* COOKIE CONSENT BANNER */
+.cookie-banner {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  max-width: 460px;
+  width: calc(100% - 4rem);
+  background: rgba(18, 18, 18, 0.94);
+  backdrop-filter: blur(25px);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  z-index: 9998;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  transform: translateY(140%);
+  opacity: 0;
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+.cookie-banner.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cookie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cookie-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.cookie-text p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.cookie-link {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.cookie-link:hover {
+  color: var(--accent);
+}
+
+.cookie-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cookie-accept-btn {
+  padding: 0.65rem 1.3rem;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 600px) {
+  .cookie-banner {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    width: calc(100% - 2rem);
+    padding: 1.25rem;
+  }
 }
 
 /* SCROLL REVEAL */

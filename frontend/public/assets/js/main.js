@@ -149,7 +149,7 @@ if (navHamburger && navMenu) {
 }
 
 // Swiper Initialization
-document.addEventListener("DOMContentLoaded", () => {
+function initSwiper() {
   const swiperOptions = {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -169,8 +169,16 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  new Swiper(".cases-swiper", swiperOptions);
-});
+  if (document.querySelector(".cases-swiper")) {
+    new Swiper(".cases-swiper", swiperOptions);
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initSwiper);
+} else {
+  initSwiper();
+}
 
 // ==========================================
 // CASE STUDY MODAL DATA & CONTROLLER
@@ -465,3 +473,73 @@ document.addEventListener("keydown", (e) => {
     }
   }, 4000);
 })();
+
+// ==========================================
+// PRIVACY POLICY MODAL & COOKIE BANNER CONTROLLER
+// ==========================================
+function initPrivacyAndCookies() {
+  const privacyModal = document.getElementById("privacyModal");
+  const openPrivacyModal = document.getElementById("openPrivacyModal");
+  const openPrivacyFromBanner = document.getElementById("openPrivacyFromBanner");
+  const privacyModalClose = document.getElementById("privacyModalClose");
+  const privacyModalUnderstandBtn = document.getElementById("privacyModalUnderstandBtn");
+
+  const cookieBanner = document.getElementById("cookieBanner");
+  const acceptCookies = document.getElementById("acceptCookies");
+
+  function openPrivacy() {
+    if (!privacyModal) return;
+    privacyModal.classList.add("active");
+    privacyModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    bindCursorHover(privacyModal.querySelectorAll("button, a"));
+  }
+
+  function closePrivacy() {
+    if (!privacyModal) return;
+    privacyModal.classList.remove("active");
+    privacyModal.setAttribute("aria-hidden", "true");
+    if (!navMenu || !navMenu.classList.contains("active")) {
+      document.body.style.overflow = "";
+    }
+  }
+
+  if (openPrivacyModal) openPrivacyModal.addEventListener("click", openPrivacy);
+  if (openPrivacyFromBanner) openPrivacyFromBanner.addEventListener("click", openPrivacy);
+  if (privacyModalClose) privacyModalClose.addEventListener("click", closePrivacy);
+  if (privacyModalUnderstandBtn) privacyModalUnderstandBtn.addEventListener("click", closePrivacy);
+
+  if (privacyModal) {
+    privacyModal.addEventListener("click", (e) => {
+      if (e.target === privacyModal) closePrivacy();
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && privacyModal && privacyModal.classList.contains("active")) {
+      closePrivacy();
+    }
+  });
+
+  // Cookie banner consent logic
+  const hasAccepted = localStorage.getItem("cookie_consent_accepted");
+  if (!hasAccepted && cookieBanner) {
+    setTimeout(() => {
+      cookieBanner.classList.add("show");
+      bindCursorHover(cookieBanner.querySelectorAll("button, a"));
+    }, 1000);
+  }
+
+  if (acceptCookies && cookieBanner) {
+    acceptCookies.addEventListener("click", () => {
+      localStorage.setItem("cookie_consent_accepted", "true");
+      cookieBanner.classList.remove("show");
+    });
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPrivacyAndCookies);
+} else {
+  initPrivacyAndCookies();
+}
