@@ -58,8 +58,10 @@ const observer = new IntersectionObserver(
         e.target.classList.add("visible");
       }
     });
+  }, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -60px 0px"
   },
-  { threshold: 0.1, rootMargin: "0px 0px -60px 0px" },
 );
 reveals.forEach((el) => observer.observe(el));
 
@@ -90,8 +92,9 @@ const heroObs = new IntersectionObserver(
       }, 900);
       heroObs.disconnect();
     }
+  }, {
+    threshold: 0.3
   },
-  { threshold: 0.3 },
 );
 const heroSection = document.getElementById("hero");
 if (heroSection) heroObs.observe(heroSection);
@@ -190,12 +193,9 @@ const casesData = {
     tags: ["React", "Shopify API", "Vanilla JS", "Liquid"],
     liveUrl: "http://mobiletti.com.br",
     liveUrlLabel: "Visitar Loja Ao Vivo",
-    challenge:
-      "A Mobiletti é uma marca de estampas e tecidos sob medida e alto padrão. O maior gargalo do e-commerce era a impossibilidade de os clientes personalizarem cores, estampas, tecidos e dimensões em tempo real. Isso gerava atrito constante, dependência de atendimento via suporte e uma alta taxa de abandono de carrinho.",
-    solution:
-      "Arquitetura e desenvolvimento de um configurador de produtos interativo em React integrado nativamente à API da Shopify. Construí um sistema dinâmico de composição visual com renderização por camadas em tempo real. O customizer recalcula o preço instantaneamente com base nas especificações selecionadas e injeta os atributos customizados diretamente nas propriedades do item no carrinho da Shopify.",
-    results:
-      "Aumento expressivo na taxa de conversão direta do e-commerce e no ticket médio devido à facilidade de personalização. Eliminou-se o gargalo no suporte e concedeu-se autonomia total para a equipe da loja gerenciar regras e acabamentos pelo painel da Shopify.",
+    challenge: "A Mobiletti é uma marca de estampas e tecidos sob medida e alto padrão. O maior gargalo do e-commerce era a impossibilidade de os clientes personalizarem cores, estampas, tecidos e dimensões em tempo real. Isso gerava atrito constante, dependência de atendimento via suporte e uma alta taxa de abandono de carrinho.",
+    solution: "Arquitetura e desenvolvimento de um configurador de produtos interativo em React integrado nativamente à API da Shopify. Construí um sistema dinâmico de composição visual com renderização por camadas em tempo real. O customizer recalcula o preço instantaneamente com base nas especificações selecionadas e injeta os atributos customizados diretamente nas propriedades do item no carrinho da Shopify.",
+    results: "Aumento expressivo na taxa de conversão direta do e-commerce e no ticket médio devido à facilidade de personalização. Eliminou-se o gargalo no suporte e concedeu-se autonomia total para a equipe da loja gerenciar regras e acabamentos pelo painel da Shopify.",
   },
   ressalva: {
     title: "Ressalva Project",
@@ -203,12 +203,9 @@ const casesData = {
     tags: ["Shopify", "Liquid Custom", "Performance CSS", "Vanilla JS"],
     liveUrl: "http://ressalvaproject.com.br",
     liveUrlLabel: "Visitar Loja Ao Vivo",
-    challenge:
-      "A Ressalva Project necessitava de um tema totalmente sob medida para representar sua estética minimalista. Os temas genéricos disponíveis na plataforma apresentavam lentidão no carregamento, código poluído e engessamento no design em momentos de pico de acessos e lançamentos de coleções (drops).",
-    solution:
-      "Desenvolvimento de tema exclusivo em Liquid, sem o uso de bibliotecas pesadas de terceiros. Apliquei Vanilla JS assíncrono para interações de interface, minicart em gaveta com atualização dinâmica via Ajax API da Shopify e carregamento progressivo otimizado de imagens em alta resolução. Diversas funcionalidades adicionais foram implementadas como relação automática de produtos da mesma cor, complete o look, countdown para lançamentos, entre outras.",
-    results:
-      "Performance, estética e funcionalidade alinhadas para maximizar a retenção e a interatividade dos clientes.",
+    challenge: "A Ressalva Project necessitava de um tema totalmente sob medida para representar sua estética minimalista. Os temas genéricos disponíveis na plataforma apresentavam lentidão no carregamento, código poluído e engessamento no design em momentos de pico de acessos e lançamentos de coleções (drops).",
+    solution: "Desenvolvimento de tema exclusivo em Liquid, sem o uso de bibliotecas pesadas de terceiros. Apliquei Vanilla JS assíncrono para interações de interface, minicart em gaveta com atualização dinâmica via Ajax API da Shopify e carregamento progressivo otimizado de imagens em alta resolução. Diversas funcionalidades adicionais foram implementadas como relação automática de produtos da mesma cor, complete o look, countdown para lançamentos, entre outras.",
+    results: "Performance, estética e funcionalidade alinhadas para maximizar a retenção e a interatividade dos clientes.",
   },
   praia: {
     title: "Praia",
@@ -216,12 +213,9 @@ const casesData = {
     tags: ["NuvemShop", "JavaScript", "CSS3 Moderno", "UX UI"],
     liveUrl: "http://praia.shop/",
     liveUrlLabel: "Visitar Loja Ao Vivo",
-    challenge:
-      "A plataforma NuvemShop da marca possuía um layout padrão e rígido que não capturava a identidade visual praia/lifestyle. A experiência mobile era truncada, com filtros de busca lentos e exibição de fotos que não valorizavam os produtos.",
-    solution:
-      "Criação de um tema customizado, restruturado e otimizado para melhorar a performance e a usabilidade do site e com mais funcionalidades como tabela de medidas e player do Spotify integrado com playlist da marca.",
-    results:
-      "Aumento na taxa de conversão e permanência no site, com a equipe da marca ganhando 100% de autonomia para modificar banners e vitrines sem dependência técnica.",
+    challenge: "A plataforma NuvemShop da marca possuía um layout padrão e rígido que não capturava a identidade visual praia/lifestyle. A experiência mobile era truncada, com filtros de busca lentos e exibição de fotos que não valorizavam os produtos.",
+    solution: "Criação de um tema customizado, restruturado e otimizado para melhorar a performance e a usabilidade do site e com mais funcionalidades como tabela de medidas e player do Spotify integrado com playlist da marca.",
+    results: "Aumento na taxa de conversão e permanência no site, com a equipe da marca ganhando 100% de autonomia para modificar banners e vitrines sem dependência técnica.",
   },
   ecle: {
     title: "Eclé",
@@ -229,12 +223,9 @@ const casesData = {
     tags: ["Tray Commerce", "HTML5", "CSS3", "JavaScript", "Custom Modules"],
     liveUrl: "https://www.ecle.studio",
     liveUrlLabel: "Visitar Loja Ao Vivo",
-    challenge:
-      "A marca Eclé buscava uma experiência refinada de e-commerce dentro da plataforma Tray, exigindo integração direta com o gateway de pagamento da REDE. Além disso, a loja estava com problemas de performance e usabilidade.",
-    solution:
-      "Desenvolvimento de tema customizado, cadastro de produtos organizados e categorizados, integração com o gateway de pagamento da REDE e otimização de performance e usabilidade do site.",
-    results:
-      "Redução na taxa de abandono de carrinho no checkout e aumento na taxa de conversão.",
+    challenge: "A marca Eclé buscava uma experiência refinada de e-commerce dentro da plataforma Tray, exigindo integração direta com o gateway de pagamento da REDE. Além disso, a loja estava com problemas de performance e usabilidade.",
+    solution: "Desenvolvimento de tema customizado, cadastro de produtos organizados e categorizados, integração com o gateway de pagamento da REDE e otimização de performance e usabilidade do site.",
+    results: "Redução na taxa de abandono de carrinho no checkout e aumento na taxa de conversão.",
   },
   mundopura: {
     title: "Mundo Pura",
@@ -242,12 +233,9 @@ const casesData = {
     tags: ["Shopify", "Liquid", "SEO Avançado", "JS Search"],
     liveUrl: "https://mundopura.com",
     liveUrlLabel: "Visitar Loja Ao Vivo",
-    challenge:
-      "Com um catálogo extenso de produtos naturais e bem-estar, a loja antiga sofria com problemas de busca interna, arquitetura de informação confusa e baixa visibilidade orgânica nos motores de busca.",
-    solution:
-      "Reformulação completa da arquitetura do tema em Liquid com foco em SEO (Schema.org / JSON-LD dados estruturados), busca preditiva em JS com destaque de palavras-chave em tempo real e layout totalmente redesenhado com design responsivo e moderno.",
-    results:
-      "Aumento no tráfego orgânico via Google e aumento na taxa de conversão total.",
+    challenge: "Com um catálogo extenso de produtos naturais e bem-estar, a loja antiga sofria com problemas de busca interna, arquitetura de informação confusa e baixa visibilidade orgânica nos motores de busca.",
+    solution: "Reformulação completa da arquitetura do tema em Liquid com foco em SEO (Schema.org / JSON-LD dados estruturados), busca preditiva em JS com destaque de palavras-chave em tempo real e layout totalmente redesenhado com design responsivo e moderno.",
+    results: "Aumento no tráfego orgânico via Google e aumento na taxa de conversão total.",
   },
   "studio-oko": {
     title: "Stúdio OKO",
@@ -255,12 +243,9 @@ const casesData = {
     tags: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "Vercel"],
     liveUrl: "https://studio-oko.vercel.app/",
     liveUrlLabel: "Visitar Site Ao Vivo",
-    challenge:
-      "Criar uma presença digital de altíssimo nível para o Stúdio OKO (divisão especialista em temas Shopify Premium do grupo OJuanDev) para atrair grandes marcas e-commerce exigentes por design inovador.",
-    solution:
-      "Desenvolvimento de landing page de alta performance com Tailwind CSS e JavaScript nativo para animações micro-interactive de scroll e interatividade. Deploy contínuo na Vercel com CDN global e compressão estática extrema.",
-    results:
-      "Nota máxima de 99/100 no Google Lighthouse e aumento de +80% no volume de leads qualificados que entram em contato diretamente para contratação de projetos e-commerce de alto ticket.",
+    challenge: "Criar uma presença digital de altíssimo nível para o Stúdio OKO (divisão especialista em temas Shopify Premium do grupo OJuanDev) para atrair grandes marcas e-commerce exigentes por design inovador.",
+    solution: "Desenvolvimento de landing page de alta performance com Tailwind CSS e JavaScript nativo para animações micro-interactive de scroll e interatividade. Deploy contínuo na Vercel com CDN global e compressão estática extrema.",
+    results: "Nota máxima de 99/100 no Google Lighthouse e aumento de +80% no volume de leads qualificados que entram em contato diretamente para contratação de projetos e-commerce de alto ticket.",
   },
   cubi: {
     title: "CUBI",
@@ -268,12 +253,18 @@ const casesData = {
     tags: ["React", "Shopify API", "Lovable Frontend", "JavaScript"],
     liveUrl: "https://www.cubibrasil.com.br",
     liveUrlLabel: "Visitar Loja Ao Vivo",
-    challenge:
-      "A marca possuía o protótipo e front-end visual construído no Lovable/React, mas necessitava integrar toda a lógica de checkout, variações de produto, estoque e gateway de pagamento à infraestrutura comercial da Shopify.",
-    solution:
-      "Realizei a engenharia de integração completa entre o código React fornecido e a API de storefront da Shopify. Mapeei estados de produto, sincronizei estoque em tempo real e adaptei a jornada de compra para o checkout nativo.",
-    results:
-      "Redução de 60% no tempo total de entrega do projeto e conexão impecável entre um design disruptivo e a robustez e estabilidade da infraestrutura da Shopify.",
+    challenge: "A marca possuía o protótipo e front-end visual construído no Lovable/React, mas necessitava integrar toda a lógica de checkout, variações de produto, estoque e gateway de pagamento à infraestrutura comercial da Shopify.",
+    solution: "Realizei a engenharia de integração completa entre o código React fornecido e a API de storefront da Shopify. Mapeei estados de produto, sincronizei estoque em tempo real e adaptei a jornada de compra para o checkout nativo.",
+    results: "Redução de 60% no tempo total de entrega do projeto e conexão impecável entre um design disruptivo e a robustez e estabilidade da infraestrutura da Shopify.",
+  },
+  drsergio: {
+    title: "Dr. Sérgio Faria",
+    category: "// ESTUDO DE CASO · Site integrado com Firebase",
+    tags: ["React", "Next", "Typescript", "Firebase"],
+    liveUrl: "https://dr-sergio-tau.vercel.app",
+    liveUrlLabel: "Visitar Site Ao Vivo",
+    challenge: "O Dr Sérgio queria atualizar seu site antigo construido no Wix. Desenvolvi o site do zero, em React para reaproveitamento de componentes, nextjs para facilitar a páginação e painel admin com dados salvos no Firebase para edição fácil dos dados do site.",
+    results: "Site muito mais atual, moderno, rápido e intuitivo. Trazendo a facilidade de manipulação de dados.",
   },
   cartflow: {
     title: "CartFlow",
@@ -281,12 +272,9 @@ const casesData = {
     tags: ["Node.js", "React", "Prisma ORM", "PostgreSQL"],
     liveUrl: "https://github.com/OJuanDev/Cartflow",
     liveUrlLabel: "Ver no GitHub",
-    challenge:
-      "Plataformas tradicionais de e-commerce impõem limites à customização e taxas elevadas. O desafio foi criar uma engine de e-commerce open-source modular, altamente segura e pronta para escalar com microsserviços.",
-    solution:
-      "Desenvolvimento de API REST em Node.js com TypeScript, ORM Prisma e PostgreSQL para a retaguarda, acoplada a um dashboard administrativo e loja em React. Implementei gestão de carrinho headless, cupons e múltiplos gateways.",
-    results:
-      "Projeto open-source robusto com tempo de resposta de API inferior a 45ms, arquitetura desacoplada e flexibilidade total para customização de front-end por qualquer desenvolvedor.",
+    challenge: "Plataformas tradicionais de e-commerce impõem limites à customização e taxas elevadas. O desafio foi criar uma engine de e-commerce open-source modular, altamente segura e pronta para escalar com microsserviços.",
+    solution: "Desenvolvimento de API REST em Node.js com TypeScript, ORM Prisma e PostgreSQL para a retaguarda, acoplada a um dashboard administrativo e loja em React. Implementei gestão de carrinho headless, cupons e múltiplos gateways.",
+    results: "Projeto open-source robusto com tempo de resposta de API inferior a 45ms, arquitetura desacoplada e flexibilidade total para customização de front-end por qualquer desenvolvedor.",
   },
   "saas-copilot": {
     title: "SaaS Copilot",
@@ -294,12 +282,9 @@ const casesData = {
     tags: ["TypeScript", "OpenAI API", "Next.js", "Tailwind"],
     liveUrl: "https://github.com/Juansantoss07",
     liveUrlLabel: "Ver no GitHub",
-    challenge:
-      "Reduzir o tempo gasto por equipes de marketing e e-commerce na criação manual de descrições de produtos, posts e análises de SEO sem depender de ferramentas complexas.",
-    solution:
-      "Desenvolvimento de plataforma Micro-SaaS em Next.js integrada aos modelos GPT-4 da OpenAI via Server-Sent Events (streaming). Criei engenharia de prompts dinâmicos e exportação de conteúdo com um clique.",
-    results:
-      "Economia de mais de 80% do tempo gasto na geração de copies comerciais e descrições para e-commerce com alta qualidade de SEO.",
+    challenge: "Reduzir o tempo gasto por equipes de marketing e e-commerce na criação manual de descrições de produtos, posts e análises de SEO sem depender de ferramentas complexas.",
+    solution: "Desenvolvimento de plataforma Micro-SaaS em Next.js integrada aos modelos GPT-4 da OpenAI via Server-Sent Events (streaming). Criei engenharia de prompts dinâmicos e exportação de conteúdo com um clique.",
+    results: "Economia de mais de 80% do tempo gasto na geração de copies comerciais e descrições para e-commerce com alta qualidade de SEO.",
   },
   metricboard: {
     title: "MetricBoard",
@@ -307,12 +292,9 @@ const casesData = {
     tags: ["React", "D3.js", "Express", "WebSockets"],
     liveUrl: "https://github.com/Juansantoss07",
     liveUrlLabel: "Ver no GitHub",
-    challenge:
-      "Processar e exibir volumes expressivos de eventos de dados em tempo real em um dashboard web sem gerar quedas de frame rate ou travamento da página.",
-    solution:
-      "Arquitetura com WebSockets (Socket.io) integrando um servidor Express a um dashboard React com gráficos SVG dinâmicos desenhados via D3.js com renderização otimizada por diff.",
-    results:
-      "Capacidade de processar mais de 10.000 requisições por segundo mantendo resposta da UI em 15ms sem engasgos no navegador.",
+    challenge: "Processar e exibir volumes expressivos de eventos de dados em tempo real em um dashboard web sem gerar quedas de frame rate ou travamento da página.",
+    solution: "Arquitetura com WebSockets (Socket.io) integrando um servidor Express a um dashboard React com gráficos SVG dinâmicos desenhados via D3.js com renderização otimizada por diff.",
+    results: "Capacidade de processar mais de 10.000 requisições por segundo mantendo resposta da UI em 15ms sem engasgos no navegador.",
   },
   authvault: {
     title: "AuthVault",
@@ -320,12 +302,9 @@ const casesData = {
     tags: ["Node.js", "JWT RS256", "Docker", "Redis", "OAuth 2.0"],
     liveUrl: "https://github.com/OJuanDev/AuthVault-Backend",
     liveUrlLabel: "Ver no GitHub",
-    challenge:
-      "Prover uma solução de autenticação desacoplada, segura e pronta para produção que suporte rotação contínua de refresh tokens e controle de sessões simultâneas.",
-    solution:
-      "Microsserviço Node.js/TypeScript com assinatura assimétrica JWT (RS256), armazenamento de tokens revogados no Redis, suporte a OAuth 2.0 (Google/GitHub) e conteinerização via Docker Compose.",
-    results:
-      "API de autenticação de classe corporativa, testada contra vulnerabilidades OWASP e com deploy instantâneo em ambientes conteinerizados.",
+    challenge: "Prover uma solução de autenticação desacoplada, segura e pronta para produção que suporte rotação contínua de refresh tokens e controle de sessões simultâneas.",
+    solution: "Microsserviço Node.js/TypeScript com assinatura assimétrica JWT (RS256), armazenamento de tokens revogados no Redis, suporte a OAuth 2.0 (Google/GitHub) e conteinerização via Docker Compose.",
+    results: "API de autenticação de classe corporativa, testada contra vulnerabilidades OWASP e com deploy instantâneo em ambientes conteinerizados.",
   },
 };
 
@@ -370,7 +349,7 @@ function openCaseModal(caseId) {
   if (modalLiveUrl) modalLiveUrl.href = data.liveUrl || "#";
   if (modalLiveUrlText)
     modalLiveUrlText.textContent =
-      data.liveUrlLabel || "Visitar projeto ao vivo";
+    data.liveUrlLabel || "Visitar projeto ao vivo";
 
   // Display modal
   modal.classList.add("active");
