@@ -304,158 +304,175 @@
       Minha <em>jornada</em><br />na tecnologia.
     </h2>
 
-    <div class="timeline-wrapper" id="timelineWrapper">
-      <div class="timeline-track-vertical" id="timelineTrackVertical">
-        <!-- 2012 -->
-        <div class="timeline-item-vertical reveal">
-          <div class="timeline-dot-vertical"></div>
-          <div class="timeline-content-vertical">
-            <div class="timeline-header">
-              <span class="timeline-year">2012</span>
-              <span class="timeline-badge">O Começo</span>
-            </div>
-            <h3 class="timeline-title">Desmontando o Primeiro Dispositivo</h3>
-            <p class="timeline-desc">
-              Com apenas 12 anos e movido por pura curiosidade, abri e
-              consertei sozinho um iPhone 3GS com display defeituoso. Aquele
-              momento despertou uma paixão definitiva: eu sabia que meu futuro
-              seria no universo da tecnologia.
-            </p>
-          </div>
+    <!--
+      Desktop: pin alto (altura calculada via JS) segura a viewport em tela
+      cheia enquanto o scroll vertical do mouse é convertido em translateX
+      da trilha. Ao final da trilha o pin acaba e o scroll normal continua.
+      Mobile: cada .timeline-item vira sticky e empilha por cima do anterior
+      conforme a rolagem (efeito "pilha de cards").
+    -->
+    <div class="timeline-pin" id="timelinePin">
+      <div class="timeline-viewport" id="timelineViewport">
+        <div class="timeline-progress" aria-hidden="true">
+          <div class="timeline-progress-fill" id="timelineProgressFill"></div>
+        </div>
+        <div class="timeline-hint" id="timelineHint" aria-hidden="true">
+          <span>Role para navegar</span>
+          <span class="timeline-hint-arrow">→</span>
         </div>
 
-        <!-- 2015 -->
-        <div class="timeline-item-vertical reveal">
-          <div class="timeline-dot-vertical"></div>
-          <div class="timeline-content-vertical">
-            <div class="timeline-header">
-              <span class="timeline-year">2015</span>
-              <span class="timeline-badge">Comunidade &amp; Tech</span>
+        <div class="timeline-track" id="timelineTrack">
+          <!-- 2012 -->
+          <article class="timeline-item">
+            <div class="timeline-node"><span class="timeline-dot"></span></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-year">2012</span>
+                <span class="timeline-badge">O Começo</span>
+              </div>
+              <h3 class="timeline-title">Desmontando o Primeiro Dispositivo</h3>
+              <p class="timeline-desc">
+                Com apenas 12 anos e movido por pura curiosidade, abri e
+                consertei sozinho um iPhone 3GS com display defeituoso. Aquele
+                momento despertou uma paixão definitiva: eu sabia que meu futuro
+                seria no universo da tecnologia.
+              </p>
             </div>
-            <h3 class="timeline-title">Canal de Tecnologia no YouTube</h3>
-            <p class="timeline-desc">
-              Imerso no mundo tech, criei meu próprio canal no YouTube para
-              produzir tutoriais e reviews sobre iOS, Android e Windows Phone.
-              O desejo de aprender, testar e compartilhar conhecimento começou
-              a moldar minha trajetória.
-            </p>
-          </div>
-        </div>
+          </article>
 
-        <!-- 2018 -->
-        <div class="timeline-item-vertical reveal">
-          <div class="timeline-dot-vertical"></div>
-          <div class="timeline-content-vertical">
-            <div class="timeline-header">
-              <span class="timeline-year">2018</span>
-              <span class="timeline-badge">Primeiros Projetos</span>
+          <!-- 2015 -->
+          <article class="timeline-item">
+            <div class="timeline-node"><span class="timeline-dot"></span></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-year">2015</span>
+                <span class="timeline-badge">Comunidade &amp; Tech</span>
+              </div>
+              <h3 class="timeline-title">Canal de Tecnologia no YouTube</h3>
+              <p class="timeline-desc">
+                Imerso no mundo tech, criei meu próprio canal no YouTube para
+                produzir tutoriais e reviews sobre iOS, Android e Windows Phone.
+                O desejo de aprender, testar e compartilhar conhecimento começou
+                a moldar minha trajetória.
+              </p>
             </div>
-            <h3 class="timeline-title">
-              Freelancer &amp; Desenvolvimento Web
-            </h3>
-            <p class="timeline-desc">
-              Iniciei no mercado de desenvolvimento de software criando os
-              primeiros sites institucionais, blogs e e-commerces com
-              WordPress e WooCommerce, aplicando na prática soluções reais
-              para negócios.
-            </p>
-          </div>
-        </div>
+          </article>
 
-        <!-- 2021 -->
-        <div class="timeline-item-vertical reveal">
-          <div class="timeline-dot-vertical"></div>
-          <div class="timeline-content-vertical">
-            <div class="timeline-header">
-              <span class="timeline-year">2021</span>
-              <span class="timeline-badge">Grupo TV1</span>
+          <!-- 2018 -->
+          <article class="timeline-item">
+            <div class="timeline-node"><span class="timeline-dot"></span></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-year">2018</span>
+                <span class="timeline-badge">Primeiros Projetos</span>
+              </div>
+              <h3 class="timeline-title">
+                Freelancer &amp; Desenvolvimento Web
+              </h3>
+              <p class="timeline-desc">
+                Iniciei no mercado de desenvolvimento de software criando os
+                primeiros sites institucionais, blogs e e-commerces com
+                WordPress e WooCommerce, aplicando na prática soluções reais
+                para negócios.
+              </p>
             </div>
-            <h3 class="timeline-title">Estágio em Tecnologia na TV1</h3>
-            <p class="timeline-desc">
-              Ingresso no ambiente corporativo de grande porte, atuando no
-              desenvolvimento de projetos digitais para marcas multinacionais
-              de grande expressão como
-              <strong>Avon, Mobil, Bayer, Raízen, Vivara e Coca-Cola</strong>.
-            </p>
-          </div>
-        </div>
+          </article>
 
-        <!-- 2022 -->
-        <div class="timeline-item-vertical reveal">
-          <div class="timeline-dot-vertical"></div>
-          <div class="timeline-content-vertical">
-            <div class="timeline-header">
-              <span class="timeline-year">2022</span>
-              <span class="timeline-badge">Graduação &amp; Design</span>
+          <!-- 2021 -->
+          <article class="timeline-item">
+            <div class="timeline-node"><span class="timeline-dot"></span></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-year">2021</span>
+                <span class="timeline-badge">Grupo TV1</span>
+              </div>
+              <h3 class="timeline-title">Estágio em Tecnologia na TV1</h3>
+              <p class="timeline-desc">
+                Ingresso no ambiente corporativo de grande porte, atuando no
+                desenvolvimento de projetos digitais para marcas multinacionais
+                de grande expressão como
+                <strong>Avon, Mobil, Bayer, Raízen, Vivara e Coca-Cola</strong>.
+              </p>
             </div>
-            <h3 class="timeline-title">
-              Formação Acadêmica em ADS &amp; FIAP
-            </h3>
-            <p class="timeline-desc">
-              Conclusão da primeira graduação<strong> ADS (UNINOVE)</strong>
-              aliada à formação em <strong>Graphic Design (FIAP)</strong>,
-              unindo engenharia de software e visão estética refinada.
-            </p>
-          </div>
-        </div>
+          </article>
 
-        <!-- 2023 -->
-        <div class="timeline-item-vertical reveal">
-          <div class="timeline-dot-vertical"></div>
-          <div class="timeline-content-vertical">
-            <div class="timeline-header">
-              <span class="timeline-year">2023</span>
-              <span class="timeline-badge">Grupo Moon</span>
+          <!-- 2022 -->
+          <article class="timeline-item">
+            <div class="timeline-node"><span class="timeline-dot"></span></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-year">2022</span>
+                <span class="timeline-badge">Graduação &amp; Design</span>
+              </div>
+              <h3 class="timeline-title">
+                Formação Acadêmica em ADS &amp; FIAP
+              </h3>
+              <p class="timeline-desc">
+                Conclusão da primeira graduação<strong> ADS (UNINOVE)</strong>
+                aliada à formação em <strong>Graphic Design (FIAP)</strong>,
+                unindo engenharia de software e visão estética refinada.
+              </p>
             </div>
-            <h3 class="timeline-title">Programador no Grupo Moon</h3>
-            <p class="timeline-desc">
-              Desenvolvimento de ecossistemas e-commerce para gigantes do
-              mercado varejista e fashion como
-              <strong>Mixed, Larouge, Fillity, Linea Alimentos e Running
-                Land</strong>, com foco em alta performance e escala.
-            </p>
-          </div>
-        </div>
+          </article>
 
-        <!-- 2024 -->
-        <div class="timeline-item-vertical reveal">
-          <div class="timeline-dot-vertical"></div>
-          <div class="timeline-content-vertical">
-            <div class="timeline-header">
-              <span class="timeline-year">2024</span>
-              <span class="timeline-badge">Especialização</span>
+          <!-- 2023 -->
+          <article class="timeline-item">
+            <div class="timeline-node"><span class="timeline-dot"></span></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-year">2023</span>
+                <span class="timeline-badge">Grupo Moon</span>
+              </div>
+              <h3 class="timeline-title">Programador no Grupo Moon</h3>
+              <p class="timeline-desc">
+                Desenvolvimento de ecossistemas e-commerce para gigantes do
+                mercado varejista e fashion como
+                <strong>Mixed, Larouge, Fillity, Linea Alimentos e Running
+                  Land</strong>, com foco em alta performance e escala.
+              </p>
             </div>
-            <h3 class="timeline-title">
-              Pós-Graduado em Engenharia de Software
-            </h3>
-            <p class="timeline-desc">
-              Titulação de Pós-Graduação concluída pela
-              <strong>Faculdade Metropolitana</strong>, consolidando expertise
-              avançada em arquitetura de microsserviços, padrões de projeto e
-              engenharia de software moderna.
-            </p>
-          </div>
-        </div>
+          </article>
 
-        <!-- 2025 - Atualmente -->
-        <div class="timeline-item-vertical reveal current-milestone-vertical">
-          <div class="timeline-dot-vertical current-dot-vertical"></div>
-          <div class="timeline-content-vertical">
-            <div class="timeline-header">
-              <span class="timeline-year">2025 — Presente</span>
-              <span class="timeline-badge current-badge">Atualmente</span>
+          <!-- 2024 -->
+          <article class="timeline-item">
+            <div class="timeline-node"><span class="timeline-dot"></span></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-year">2024</span>
+                <span class="timeline-badge">Especialização</span>
+              </div>
+              <h3 class="timeline-title">
+                Pós-Graduado em Engenharia de Software
+              </h3>
+              <p class="timeline-desc">
+                Titulação de Pós-Graduação concluída pela
+                <strong>Faculdade Metropolitana</strong>, consolidando expertise
+                avançada em arquitetura de microsserviços, padrões de projeto e
+                engenharia de software moderna.
+              </p>
             </div>
-            <h3 class="timeline-title">
-              Coordenador de Projetos &amp; Criador de Conteúdo
-            </h3>
-            <p class="timeline-desc">
-              Coordenação de projetos e-commerce no
-              <strong>Grupo Moon</strong>, orquestrando arquiteturas web e
-              times de desenvolvimento. Paralelamente, atuo ativamente como
-              <strong>criador de conteúdo tech</strong> gerando impacto para a
-              comunidade de tecnologia.
-            </p>
-          </div>
+          </article>
+
+          <!-- 2025 - Atualmente -->
+          <article class="timeline-item timeline-item--current">
+            <div class="timeline-node"><span class="timeline-dot"></span></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-year">2025 — Presente</span>
+                <span class="timeline-badge current-badge">Atualmente</span>
+              </div>
+              <h3 class="timeline-title">
+                Coordenador de Projetos &amp; Criador de Conteúdo
+              </h3>
+              <p class="timeline-desc">
+                Coordenação de projetos e-commerce no
+                <strong>Grupo Moon</strong>, orquestrando arquiteturas web e
+                times de desenvolvimento. Paralelamente, atuo ativamente como
+                <strong>criador de conteúdo tech</strong> gerando impacto para a
+                comunidade de tecnologia.
+              </p>
+            </div>
+          </article>
         </div>
       </div>
     </div>
@@ -687,7 +704,7 @@
           </div>
         </a>
 
-        <a href="https://studio-oko.vercel.app/" target="_blank" class="swiper-slide case-card reveal"
+        <!-- <a href="https://studio-oko.vercel.app/" target="_blank" class="swiper-slide case-card reveal"
           data-case-id="studio-oko" style="transition-delay: 0.3s">
           <div class="case-image-wrapper">
             <img src="assets/images/3.png" alt="Studio OKO" />
@@ -712,7 +729,7 @@
               OJuanDev.
             </p>
           </div>
-        </a>
+        </a> -->
 
         <a href="https://www.cubibrasil.com.br" target="_blank" class="swiper-slide case-card reveal"
           data-case-id="cubi" style="transition-delay: 0.3s">
@@ -724,7 +741,7 @@
           </div>
           <div class="case-info">
             <div class="case-meta">
-              <span class="case-num">07</span>
+              <span class="case-num">06</span>
               <div class="case-tags">
                 <span class="case-tag">REACT</span>
                 <span class="case-tag">Shopify</span>
@@ -751,7 +768,7 @@
           </div>
           <div class="case-info">
             <div class="case-meta">
-              <span class="case-num">08</span>
+              <span class="case-num">07</span>
               <div class="case-tags">
                 <span class="case-tag">REACT</span>
                 <span class="case-tag">NextJs</span>
@@ -933,55 +950,8 @@
       <a href="https://essencial-html-css.vercel.app/" target="_blank" class="conteudo-card reveal">
         <div class="conteudo-card-image">
           <div class="conteudo-icon html-css-icon-wrap">
-            <svg width="250" height="150" viewBox="0 0 140 70" fill="none" xmlns="http://www.w3.org/2000/svg"
-              aria-label="Ícone HTML e CSS">
-              <defs>
-                <linearGradient id="htmlGlow" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.15" />
-                  <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.02" />
-                </linearGradient>
-                <linearGradient id="cssGlow" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="var(--accent2)" stop-opacity="0.15" />
-                  <stop offset="100%" stop-color="var(--accent2)" stop-opacity="0.02" />
-                </linearGradient>
-              </defs>
 
-              <!-- HTML Card Badge -->
-              <g class="html-badge">
-                <rect x="10" y="7" width="48" height="56" rx="8" fill="url(#htmlGlow)" stroke="var(--html-icon)"
-                  stroke-opacity="0.3" stroke-width="1.5" />
-                <!-- < /> Icon -->
-                <path d="M21 29L15 35L21 41" stroke="var(--html-icon)" stroke-width="2.2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <path d="M30 44L36 26" stroke="var(--html-icon)" stroke-width="2.2" stroke-linecap="round" />
-                <path d="M43 29L49 35L43 41" stroke="var(--html-icon)" stroke-width="2.2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <text x="34" y="54" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700"
-                  fill="var(--html-icon)" text-anchor="middle" letter-spacing="0.5">
-                  HTML
-                </text>
-              </g>
-
-              <!-- Plus / Connector -->
-              <path d="M67 35H73M70 32V38" stroke="rgb(200, 240, 80)" stroke-width="1" stroke-linecap="round" />
-
-              <!-- CSS Card Badge -->
-              <g class="css-badge">
-                <rect x="82" y="7" width="48" height="56" rx="8" fill="url(#cssGlow)" stroke="var(--css-icon)"
-                  stroke-opacity="0.3" stroke-width="1.5" />
-                <!-- { } Icon -->
-                <path
-                  d="M93 26C90.5 26 90.5 29 90.5 31.5C90.5 33 89 34.5 87.5 34.5C89 34.5 90.5 36 90.5 37.5C90.5 40 90.5 43 93 43"
-                  stroke="var(--css-icon)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-                <path
-                  d="M119 26C121.5 26 121.5 29 121.5 31.5C121.5 33 123 34.5 124.5 34.5C123 34.5 121.5 36 121.5 37.5C121.5 40 121.5 43 119 43"
-                  stroke="var(--css-icon)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-                <text x="106" y="54" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700"
-                  fill="var(--css-icon)" text-anchor="middle" letter-spacing="0.5">
-                  CSS
-                </text>
-              </g>
-            </svg>
+            <img src="assets/images/image-html-css-material.png" alt="">
           </div>
         </div>
         <div class="conteudo-card-content">
@@ -1009,36 +979,7 @@
         style="transition-delay: 0.1s">
         <div class="conteudo-card-image">
           <div class="conteudo-icon js-icon-wrap">
-            <svg width="250" height="150" viewBox="0 0 140 70" fill="none" xmlns="http://www.w3.org/2000/svg"
-              aria-label="Ícone JavaScript">
-              <defs>
-                <linearGradient id="jsGlow" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.15" />
-                  <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.02" />
-                </linearGradient>
-              </defs>
-
-              <!-- JS Card Badge -->
-              <g class="js-badge">
-                <rect x="38" y="7" width="64" height="56" rx="8" fill="url(#jsGlow)" stroke="var(--js-icon)"
-                  stroke-opacity="0.3" stroke-width="1.5" />
-                <!-- JS Icon / Logo styling inside badge -->
-                <path
-                  d="M48 26C45.5 26 45.5 29 45.5 31.5C45.5 33 44 34.5 42.5 34.5C44 34.5 45.5 36 45.5 37.5C45.5 40 45.5 43 48 43"
-                  stroke="var(--js-icon)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-                <text x="70" y="36" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="800"
-                  fill="var(--js-icon)" text-anchor="middle" letter-spacing="0.5">
-                  JS
-                </text>
-                <path
-                  d="M92 26C94.5 26 94.5 29 94.5 31.5C94.5 33 96 34.5 97.5 34.5C96 34.5 94.5 36 94.5 37.5C94.5 40 94.5 43 92 43"
-                  stroke="var(--js-icon)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-                <text x="70" y="54" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700"
-                  fill="var(--js-icon)" text-anchor="middle" letter-spacing="0.5">
-                  JAVASCRIPT
-                </text>
-              </g>
-            </svg>
+            <img src="assets/images/javascript-material.png" alt="">
           </div>
         </div>
         <div class="conteudo-card-content">

@@ -25,13 +25,19 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 html,
 body {
-  overflow-x: hidden;
   width: 100%;
   position: relative;
 }
+/* Importante: overflow-x fica só no <html>. Se for reaplicado também no
+   <body>, o navegador passa a tratar overflow-y do body como "auto" (regra
+   da spec de overflow para pares visible/non-visible), o que transforma o
+   body num scroll container próprio que nunca rola de fato — e isso quebra
+   position: sticky em qualquer elemento dentro dele (ex.: .timeline-viewport
+   na seção Trajetória). */
 body {
   background: var(--bg);
   color: var(--text);
@@ -172,7 +178,7 @@ nav {
   background: var(--accent);
   color: #080808;
   padding: 0.6rem 1.4rem;
-  border-radius: 2px;
+  border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -337,6 +343,7 @@ nav {
   font-weight: 500;
   text-decoration: none;
   border: 1px solid var(--border);
+  border-radius: 20px;
   transition:
     color 0.2s,
     border-color 0.2s;
@@ -525,6 +532,7 @@ section {
   font-size: 0.78rem;
   color: var(--muted);
   letter-spacing: 0.05em;
+  border-radius: 20px;
   transition: all 0.2s;
   position: relative;
   overflow: hidden;
@@ -555,27 +563,30 @@ section {
   background: var(--bg3);
   border: 1px solid var(--border);
   padding: 2rem;
+  border-radius: 20px;
   position: relative;
 }
 .about-card::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 8px;
+  left: 8px;
   width: 60px;
   height: 60px;
   border-top: 2px solid var(--accent);
   border-left: 2px solid var(--accent);
+  border-radius: 20px 0;
 }
 .about-card::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 8px;
+  right: 8px;
   width: 60px;
   height: 60px;
   border-bottom: 2px solid var(--accent);
   border-right: 2px solid var(--accent);
+  border-radius: 20px 0;
 }
 .about-quote {
   font-family: "Instrument Serif", serif;
@@ -595,6 +606,7 @@ section {
   padding: 0.4rem 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  border-radius: 20px;
 }
 .about-info-grid {
   display: grid;
@@ -609,127 +621,183 @@ section {
 }
 
 /* ==========================================
-   TRAJETÓRIA - VERTICAL TIMELINE
+   TRAJETÓRIA - TIMELINE
+   (desktop: scroll horizontal "fixado" / mobile: cards empilhados)
    ========================================== */
 #trajetoria {
   background: var(--bg);
   position: relative;
 }
 
-.timeline-wrapper {
+/* A altura do pin é calculada e aplicada via JS (assets/js/main.js),
+   proporcional à distância horizontal que a trilha precisa percorrer.
+   Enquanto o usuário rola o mouse para baixo dentro dessa altura, a
+   viewport fica fixa na tela e a trilha se move horizontalmente. Ao
+   terminar essa altura, o pin solta e a rolagem normal do site continua. */
+.timeline-pin {
+  position: relative;
   margin-top: 4rem;
-  position: relative;
 }
 
-.timeline-track-vertical {
+.timeline-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  position: relative;
-  padding-left: 2rem;
+  align-items: center;
 }
 
-.timeline-track-vertical::before {
+.timeline-progress {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  right: 3rem;
+  height: 2px;
+  border-radius: 20px;
+  background: var(--border);
+  overflow: hidden;
+  z-index: 3;
+}
+
+.timeline-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+
+.timeline-hint {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.timeline-hint.is-hidden {
+  opacity: 0;
+}
+
+.timeline-hint-arrow {
+  display: inline-block;
+  animation: timelineHintArrow 1.4s ease-in-out infinite;
+}
+
+@keyframes timelineHintArrow {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+.timeline-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 0 8vw;
+  position: relative;
+  will-change: transform;
+}
+
+.timeline-track::before {
   content: "";
   position: absolute;
-  left: 0.85rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
+  left: 0;
+  right: 0;
+  top: 1rem;
+  height: 2px;
   background: linear-gradient(
-    to bottom,
+    90deg,
     rgba(200, 240, 80, 0.1),
     var(--accent),
     var(--accent2),
-    var(--accent)
+    var(--accent),
+    rgba(200, 240, 80, 0.1)
   );
 }
 
-.timeline-item-vertical {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+.timeline-item {
   position: relative;
-  padding-left: 1.5rem;
+  flex: 0 0 auto;
+  width: min(60vw, 360px);
 }
 
-.timeline-item-vertical:last-child {
-  margin-bottom: 0;
+.timeline-node {
+  position: relative;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  z-index: 2;
 }
 
-.timeline-dot-vertical {
-  position: absolute;
-  left: 0.425rem;
-  top: 1.5rem;
+.timeline-dot {
   width: 14px;
   height: 14px;
+  border-radius: 50%;
   background: var(--bg);
   border: 2px solid var(--accent);
-  border-radius: 50%;
-  z-index: 2;
   transition: all 0.3s cubic-bezier(0.2, 0, 0.2, 1);
-  transform: translateX(-50%);
 }
 
-.timeline-item-vertical:hover .timeline-dot-vertical {
+.timeline-item:hover .timeline-dot,
+.timeline-item--current .timeline-dot {
   background: var(--accent);
   box-shadow: 0 0 15px var(--accent);
-  transform: translateX(-50%) scale(1.3);
 }
 
-.timeline-dot-vertical.current-dot-vertical {
-  background: var(--accent);
-  border-color: var(--accent);
-  box-shadow: 0 0 15px var(--accent);
-  animation: pulseDot 2s infinite;
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.3);
 }
 
-@keyframes pulseDot {
+.timeline-item--current .timeline-dot {
+  animation: pulseDotH 2s infinite;
+}
+
+@keyframes pulseDotH {
   0%,
   100% {
     box-shadow: 0 0 10px var(--accent);
-    transform: translateX(-50%) scale(1);
+    transform: scale(1);
   }
   50% {
     box-shadow: 0 0 22px var(--accent);
-    transform: translateX(-50%) scale(1.25);
+    transform: scale(1.25);
   }
 }
 
-.timeline-content-vertical {
+.timeline-card {
+  margin-top: 1.5rem;
   background: var(--bg3);
   border: 1px solid var(--border);
-  padding: 1.5rem 2rem;
-  flex: 1;
-  transition: all 0.3s cubic-bezier(0.2, 0, 0.2, 1);
-  position: relative;
+  border-radius: 20px;
+  padding: 1.75rem;
+  height: 350px;
+  transition:
+    border-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
-.timeline-content-vertical::before {
-  content: "";
-  position: absolute;
-  left: -8px;
-  top: 1.25rem;
-  width: 14px;
-  height: 14px;
-  background: var(--bg3);
-  border-left: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transform: rotate(45deg);
-  transition: border-color 0.3s;
-}
-
-.timeline-item-vertical:hover .timeline-content-vertical {
+.timeline-item:hover .timeline-card {
   border-color: rgba(200, 240, 80, 0.25);
-  transform: translateX(4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-.timeline-item-vertical:hover .timeline-content-vertical::before {
-  border-color: rgba(200, 240, 80, 0.25);
-}
-
-.timeline-item-vertical.current-milestone-vertical .timeline-content-vertical {
+.timeline-item--current .timeline-card {
   border-color: var(--accent);
   border-width: 2px;
   background: rgba(200, 240, 80, 0.03);
@@ -761,6 +829,7 @@ section {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   padding: 0.25rem 0.65rem;
+  border-radius: 20px;
 }
 
 .timeline-badge.current-badge {
@@ -789,18 +858,102 @@ section {
   color: var(--text);
 }
 
+/* MOBILE: cards empilhados (stacked cards) — cada card fica sticky e o
+   próximo desliza por cima, "sobrepondo" o anterior conforme a rolagem. */
 @media (max-width: 768px) {
-  .timeline-track-vertical {
-    padding-left: 1.5rem;
+  .timeline-pin {
+    height: auto;
+    margin-top: 2.5rem;
   }
 
-  .timeline-item-vertical {
-    padding-left: 1rem;
-    gap: 1.5rem;
+  .timeline-viewport {
+    position: static;
+    height: auto;
+    overflow: visible;
+    display: block;
   }
 
-  .timeline-content-vertical {
-    padding: 1.25rem;
+  .timeline-progress,
+  .timeline-hint,
+  .timeline-node {
+    display: none;
+  }
+
+  .timeline-track {
+    display: block;
+    padding: 0;
+    transform: none;
+  }
+
+  .timeline-track::before {
+    display: none;
+  }
+
+  .timeline-item {
+    width: auto;
+    margin-bottom: 1.75rem;
+    position: sticky;
+  }
+
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .timeline-item:nth-child(1) {
+    top: 5.5rem;
+    z-index: 1;
+  }
+  .timeline-item:nth-child(2) {
+    top: 6.1rem;
+    z-index: 2;
+  }
+  .timeline-item:nth-child(3) {
+    top: 6.7rem;
+    z-index: 3;
+  }
+  .timeline-item:nth-child(4) {
+    top: 7.3rem;
+    z-index: 4;
+  }
+  .timeline-item:nth-child(5) {
+    top: 7.9rem;
+    z-index: 5;
+  }
+  .timeline-item:nth-child(6) {
+    top: 8.5rem;
+    z-index: 6;
+  }
+  .timeline-item:nth-child(7) {
+    top: 9.1rem;
+    z-index: 7;
+  }
+  .timeline-item:nth-child(8) {
+    top: 9.7rem;
+    z-index: 8;
+  }
+  .timeline-item:nth-child(9) {
+    top: 10.3rem;
+    z-index: 9;
+  }
+
+  .timeline-card {
+    margin-top: 0;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  }
+
+  /* No empilhamento mobile os cards precisam ser opacos para cobrir
+     de fato o card anterior — o tingimento quase transparente do card
+     "atual" (pensado para o fundo fixo do desktop) fica ilegível aqui. */
+  .timeline-item--current .timeline-card {
+    background: var(--bg3);
+  }
+
+  .timeline-item:hover .timeline-card {
+    transform: none;
   }
 
   .timeline-title {
@@ -822,6 +975,7 @@ section {
   background: var(--bg3);
   border: 1px solid var(--border);
   padding: 2.5rem 2rem;
+  border-radius: 20px;
   position: relative;
   transition:
     border-color 0.3s,
@@ -886,6 +1040,7 @@ section {
   background: var(--bg3);
   border: 1px solid var(--border);
   padding: 2.25rem 2rem 2rem;
+  border-radius: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -969,6 +1124,7 @@ section {
   flex-direction: column;
   background: var(--bg3);
   border: 1px solid var(--border);
+  border-radius: 20px;
   text-decoration: none;
   color: var(--text);
   overflow: hidden;
@@ -1075,6 +1231,7 @@ section {
   padding: 0.25rem 0.6rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  border-radius: 20px;
 }
 
 /* Case Image Placeholder */
@@ -1163,6 +1320,7 @@ section {
 .conteudo-card {
   background: var(--bg3);
   border: 1px solid var(--border);
+  border-radius: 20px;
   text-decoration: none;
   color: var(--text);
   display: flex;
@@ -1182,7 +1340,7 @@ section {
 
 .conteudo-card-image {
   background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-  padding: 2.5rem 2rem;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1194,9 +1352,15 @@ section {
   align-items: center;
   justify-content: center;
   opacity: 0.9;
+  min-width: 100%;
   transition:
     transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
     filter 0.35s ease;
+
+    img {
+      width: 100%;
+      height: 250px;
+    }
 }
 
 .html-css-icon-wrap svg,
@@ -1269,6 +1433,7 @@ section {
   background: rgba(200, 240, 80, 0.1);
   border: 1px solid rgba(200, 240, 80, 0.2);
   padding: 0.3rem 0.7rem;
+  border-radius: 20px;
 }
 
 .conteudo-title {
@@ -1736,9 +1901,6 @@ footer {
   .marquee-track {
     width: fit-content;
   }
-  .timeline-wrapper {
-    margin-top: 2.5rem;
-  }
 }
 
 /* GLOW LINE */
@@ -1792,6 +1954,7 @@ footer {
 .case-modal-container {
   background: var(--bg2);
   border: 1px solid var(--border);
+  border-radius: 20px;
   width: 100%;
   max-width: 750px;
   max-height: 85vh;
@@ -1821,7 +1984,6 @@ footer {
 
 .case-modal-container::-webkit-scrollbar-thumb {
   background-color: var(--accent);
-  border-radius: 0;
 }
 
 .case-modal-close {
@@ -1830,6 +1992,7 @@ footer {
   right: 1.5rem;
   background: var(--bg3);
   border: 1px solid var(--border);
+  border-radius: 20px;
   color: var(--muted);
   width: 40px;
   height: 40px;
@@ -1891,6 +2054,7 @@ footer {
   background: var(--bg3);
   border: 1px solid var(--border);
   padding: 1.75rem;
+  border-radius: 20px;
   position: relative;
   transition: border-color 0.3s;
 }
@@ -1925,7 +2089,7 @@ footer {
   width: 36px;
   height: 36px;
   flex-shrink: 0;
-  border-radius: 4px;
+  border-radius: 20px;
   background: var(--bg2);
   border: 1px solid var(--border);
   transition: all 0.3s ease;

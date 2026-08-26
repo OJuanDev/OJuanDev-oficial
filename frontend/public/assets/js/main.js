@@ -45,7 +45,7 @@ function bindCursorHover(elements) {
 
 bindCursorHover(
   document.querySelectorAll(
-    "a, button, .diff-card, .skill-pill, .case-card, .timeline-content-vertical, .timeline-dot-vertical, .testimonial-card, .conteudo-card",
+    "a, button, .diff-card, .skill-pill, .case-card, .timeline-card, .timeline-dot, .testimonial-card, .conteudo-card",
   ),
 );
 
@@ -182,6 +182,85 @@ if (document.readyState === "loading") {
 } else {
   initSwiper();
 }
+
+// ==========================================
+// TRAJETÓRIA — TIMELINE HORIZONTAL FIXADA (DESKTOP)
+// ==========================================
+// No desktop, o wheel/scroll do mouse continua vertical normalmente.
+// Enquanto a seção está "pinada" (.timeline-pin com altura calculada
+// abaixo), esse scroll vertical é convertido em translateX da trilha.
+// Quando a altura do pin se esgota, o sticky solta e a rolagem normal
+// do site segue para a próxima seção. No mobile, essa lógica é
+// ignorada e o efeito de cards empilhados é feito só via CSS (sticky).
+(function initTimelineHorizontal() {
+  const pin = document.getElementById("timelinePin");
+  const viewport = document.getElementById("timelineViewport");
+  const track = document.getElementById("timelineTrack");
+  const progressFill = document.getElementById("timelineProgressFill");
+  const hint = document.getElementById("timelineHint");
+
+  if (!pin || !viewport || !track) return;
+
+  const desktopQuery = window.matchMedia("(min-width: 769px)");
+  let isDesktop = desktopQuery.matches;
+  let distance = 0;
+  let ticking = false;
+
+  function clearDesktopStyles() {
+    pin.style.height = "";
+    track.style.transform = "";
+    if (progressFill) progressFill.style.width = "0%";
+    if (hint) hint.classList.remove("is-hidden");
+  }
+
+  function measure() {
+    if (!isDesktop) {
+      clearDesktopStyles();
+      return;
+    }
+    const viewportWidth = viewport.clientWidth;
+    const trackWidth = track.scrollWidth;
+    distance = Math.max(trackWidth - viewportWidth, 0);
+    pin.style.height = `${window.innerHeight + distance}px`;
+    update();
+  }
+
+  function update() {
+    if (!isDesktop) return;
+    const rect = pin.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    let progress = total > 0 ? -rect.top / total : 0;
+    progress = Math.min(Math.max(progress, 0), 1);
+
+    track.style.transform = `translateX(${-progress * distance}px)`;
+    if (progressFill) progressFill.style.width = `${progress * 100}%`;
+    if (hint) hint.classList.toggle("is-hidden", progress > 0.04);
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!isDesktop || ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => {
+    isDesktop = desktopQuery.matches;
+    measure();
+  });
+  window.addEventListener("load", measure);
+
+  if (desktopQuery.addEventListener) {
+    desktopQuery.addEventListener("change", (e) => {
+      isDesktop = e.matches;
+      measure();
+    });
+  }
+
+  measure();
+})();
 
 // ==========================================
 // CASE STUDY MODAL DATA & CONTROLLER
