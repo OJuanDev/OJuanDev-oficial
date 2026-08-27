@@ -1711,10 +1711,13 @@ footer {
 }
 
 /* GLOW LINE */
+/* Fica como <div> irmão das <section>, direto sob o <body> (sem padding
+   próprio) — já nasce com 100% da largura da viewport. Uma margin negativa
+   aqui não cancela padding nenhum: só empurra o elemento para fora da tela
+   e causa scroll horizontal. */
 .glow-line {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  margin: 0 -3rem;
   opacity: 0.3;
 }
 
@@ -1905,10 +1908,6 @@ footer {
   .cursor,
   .cursor-ring {
     display: none !important;
-  }
-  .glow-line {
-    margin: 0 -1.2rem;
-    width: auto;
   }
   .hero-title {
     overflow-wrap: break-word;
