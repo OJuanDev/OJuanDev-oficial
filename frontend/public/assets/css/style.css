@@ -1154,6 +1154,11 @@ section {
 .case-card:hover .case-image-wrapper img {
   transform: scale(1.05);
 }
+
+#projetos-particulares .case-image-wrapper {
+  display: none;
+}
+
 .case-overlay {
   position: absolute;
   inset: 0;
@@ -1245,6 +1250,14 @@ section {
 /* PROJETOS PARTICULARES */
 #projetos-particulares {
   background: var(--bg);
+
+  .case-info {
+    background-color: var(--accent);
+
+    * {
+      color: var(--bg);
+    }
+  }
 }
 .section-header-row {
   display: flex;
@@ -1697,6 +1710,14 @@ footer {
   transform: translateY(0);
 }
 
+/* GLOW LINE */
+.glow-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  margin: 0 -3rem;
+  opacity: 0.3;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   nav {
@@ -1901,14 +1922,6 @@ footer {
   .marquee-track {
     width: fit-content;
   }
-}
-
-/* GLOW LINE */
-.glow-line {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  margin: 0 -3rem;
-  opacity: 0.3;
 }
 
 /* SWIPER OVERRIDES */
