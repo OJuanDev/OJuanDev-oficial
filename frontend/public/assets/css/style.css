@@ -1159,6 +1159,8 @@ section {
   display: none;
 }
 
+
+
 .case-overlay {
   position: absolute;
   inset: 0;
@@ -1358,6 +1360,7 @@ section {
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid var(--border);
+  display: none;
 }
 
 .conteudo-icon {
