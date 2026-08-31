@@ -342,7 +342,8 @@ const casesData = {
     tags: ["React", "Next", "Typescript", "Firebase"],
     liveUrl: "https://dr-sergio-tau.vercel.app",
     liveUrlLabel: "Visitar Site Ao Vivo",
-    challenge: "O Dr Sérgio queria atualizar seu site antigo construido no Wix. Desenvolvi o site do zero, em React para reaproveitamento de componentes, nextjs para facilitar a páginação e painel admin com dados salvos no Firebase para edição fácil dos dados do site.",
+    challenge: "O Dr Sérgio queria atualizar seu site antigo que foi construido em plataforma desatualizada, no caso, Wix.",
+    solution: "Desenvolvi o site do zero, em React para reaproveitamento de componentes, nextjs para facilitar a páginação e painel admin com dados salvos no Firebase para edição fácil dos dados do site.""
     results: "Site muito mais atual, moderno, rápido e intuitivo. Trazendo a facilidade de manipulação de dados.",
   },
   cartflow: {
