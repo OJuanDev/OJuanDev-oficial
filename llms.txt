@@ -1,0 +1,28 @@
+# OJuanDev — Juan Santos
+
+> Site profissional de Juan Santos, engenheiro de software, desenvolvedor Full Stack e fundador do Grupo OJuanDev. Conteúdo em português do Brasil.
+
+Juan Santos atua com JavaScript, TypeScript, React, Next.js, Node.js e e-commerce. O Grupo OJuanDev reúne as agências Studio OKO e Flashlab. Os cases profissionais são apresentados em um portfólio compartilhado das agências; os projetos particulares têm seção própria. A etiqueta de cada case identifica sua agência.
+
+## Páginas e seções oficiais
+- [Perfil e apresentação](https://www.ojuandev.com.br/): formação, atuação e tecnologias.
+- [Grupo OJuanDev](https://www.ojuandev.com.br/#grupo): apresentação do grupo fundado por Juan Santos e suas duas agências.
+- [Cases profissionais](https://www.ojuandev.com.br/#cases): Mobiletti, Ressalva Project, Praia, Eclé, CUBI e Dr. Sérgio Faria são apresentados sob Flashlab; Mundo Pura sob Studio OKO.
+- [Projetos particulares](https://www.ojuandev.com.br/#projetos-particulares): projetos pessoais e open source, separados dos cases das agências.
+- [Materiais gratuitos](https://www.ojuandev.com.br/#conteudos): HTML e CSS, JavaScript, React e Next.js.
+- [Contato](https://www.ojuandev.com.br/#contato): canais oficiais de Juan Santos.
+
+## Agências do grupo
+- [Studio OKO](https://www.studiooko.com.br/): e-commerce Shopify, temas sob medida, funcionalidades exclusivas e gestão mensal. Fundador: Juan Santos.
+- [Flashlab](https://flashlab-beta.vercel.app/): landing pages, sites institucionais e lojas virtuais. Fundador: Juan Santos.
+
+## Materiais educacionais
+- [Essencial: HTML e CSS](https://essencial-html-css.vercel.app/): material gratuito de desenvolvimento web.
+- [Essencial: JavaScript](https://essencial-javascript.vercel.app/): material gratuito de JavaScript.
+- [Essencial: React](https://essencial-react.vercel.app/): material gratuito de React.
+- [Essencial: Next.js](https://essencial-nextjs.vercel.app/): material gratuito de Next.js.
+
+## Optional
+- [GitHub](https://github.com/OJuanDev): projetos e código.
+- [LinkedIn](https://www.linkedin.com/in/juan-santos-developer/): perfil profissional.
+- [Instagram](https://www.instagram.com/ojuandev/): conteúdo e novidades.
